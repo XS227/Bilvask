@@ -1,0 +1,817 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Bilvask Lillestrøm | Bilvask Express AS – Voldgata 58</title>
+  <meta name="description" content="Rask og skånsom bilvask i Lillestrøm. Pakker for sedan, SUV og varebil. Berøringsfri utvendig vask, innvendig vask, rens og polering. Ring 919 26 901." />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bilvask Lillestrøm | Bilvask Express AS" />
+  <meta property="og:description" content="Rask og skånsom bilvask i Lillestrøm. Ring 919 26 901. Voldgata 58 – rett ved Coop." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="og-cover.jpg" />
+
+  <!-- Favicon placeholders -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Schema.org JSON-LD (LocalBusiness/AutoWash) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoWash",
+    "name": "Bilvask Express AS",
+    "telephone": "+47 919 26 901",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Voldgata 58",
+      "postalCode": "2000",
+      "addressLocality": "Lillestrøm",
+      "addressCountry": "NO"
+    },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+      "opens": "08:00",
+      "closes": "19:00"
+    }],
+    "url": "",
+    "priceRange": "$$",
+    "sameAs": [
+      "https://maps.app.goo.gl/aUYi53CLXqsCJw5a9",
+      "https://www.proff.no/selskap/bilvask-express-as/lillestr%C3%B8m/bilverksteder/IF314M40064"
+    ]
+  }
+  </script>
+
+  <style>
+    :root{
+      /* Mørk blå (inspirert av prisplakat) + cyan aksent */
+      --bg: #0b2740;           /* primary dark blue */
+      --bg2: #081e31;          /* deeper for contrast */
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.09);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.72);
+      --line: rgba(255,255,255,.16);
+      --accent: #38c6d9;       /* cyan family */
+      --accent2: #7fe7f2;
+      --shadow: 0 14px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+
+    *{ box-sizing: border-box; }
+    html,body{ height: 100%; }
+    body{
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color: var(--text);
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(56,198,217,.22), transparent 55%),
+                  radial-gradient(900px 500px at 90% 10%, rgba(127,231,242,.14), transparent 50%),
+                  linear-gradient(180deg, var(--bg2), var(--bg));
+      line-height: 1.55;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:hover{ opacity: .92; }
+
+    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+
+    /* Sticky Nav */
+    .nav{
+      position: sticky; top: 0; z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(8,30,49,.72);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 12px 0;
+      gap: 16px;
+    }
+    .brand{
+      display:flex; align-items:center; gap: 12px;
+      font-weight: 800; letter-spacing: .2px;
+    }
+    .brand-badge{
+      width: 40px; height: 40px; border-radius: 12px;
+      background: linear-gradient(135deg, rgba(56,198,217,.35), rgba(255,255,255,.08));
+      border: 1px solid rgba(255,255,255,.16);
+      display:grid; place-items:center;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      position: relative;
+      overflow: hidden;
+    }
+    .brand-badge:before{
+      content:"";
+      position:absolute; inset:-30%;
+      background: conic-gradient(from 160deg, rgba(56,198,217,.25), transparent 45%, rgba(127,231,242,.20));
+      transform: rotate(10deg);
+    }
+    .brand-badge svg{ position: relative; }
+    .brand small{ display:block; font-weight:600; color: var(--muted); }
+
+    .nav-links{
+      display:flex; gap: 14px; flex-wrap: wrap; justify-content:flex-end;
+      font-size: 14px; color: var(--muted);
+    }
+    .nav-links a{
+      padding: 8px 10px; border-radius: 12px;
+      border: 1px solid transparent;
+    }
+    .nav-links a:hover{
+      border-color: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--text);
+    }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 700;
+      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      cursor: pointer;
+      user-select: none;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.085); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(56,198,217,.85), rgba(56,198,217,.22));
+      border-color: rgba(56,198,217,.55);
+      color: #07202c;
+    }
+    .btn.primary:hover{ background: linear-gradient(135deg, rgba(127,231,242,.95), rgba(56,198,217,.25)); }
+
+    .pill{
+      display:inline-flex;
+      gap: 10px; align-items:center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Sections */
+    section{ padding: 56px 0; }
+    .section-title{
+      display:flex; align-items:flex-end; justify-content:space-between; gap: 16px;
+      margin-bottom: 20px;
+    }
+    h1,h2,h3{ margin: 0 0 8px 0; line-height: 1.1; }
+    h1{ font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.5px; }
+    h2{ font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.2px; }
+    p{ margin: 0 0 12px 0; color: var(--muted); }
+
+    /* Hero with "building" shapes */
+    .hero{
+      position: relative;
+      padding: 54px 0 38px 0;
+      overflow: hidden;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 26px;
+      align-items: start;
+    }
+    .hero-card{
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card:before{
+      /* subtle gable roof line */
+      content:"";
+      position:absolute; right:-120px; top:-160px;
+      width: 460px; height: 360px;
+      background: linear-gradient(135deg, rgba(56,198,217,.28), transparent 60%);
+      transform: rotate(18deg);
+      border-radius: 80px;
+      filter: blur(0px);
+    }
+
+    .hero-kpis{
+      display:grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .kpi{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      padding: 12px;
+    }
+    .kpi b{ display:block; color: var(--text); }
+    .kpi span{ color: var(--muted); font-size: 13px; }
+
+    .hero-side{
+      display:flex; flex-direction: column; gap: 14px;
+    }
+    .side-card{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+      position: relative;
+      overflow: hidden;
+    }
+    .side-card:after{
+      /* "portal" frame hint */
+      content:"";
+      position:absolute; right: -10px; bottom: -10px;
+      width: 120px; height: 90px;
+      border: 2px solid rgba(127,231,242,.22);
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
+      border-bottom: 0;
+      opacity: .7;
+    }
+    .side-card h3{ font-size: 16px; margin-bottom: 6px; }
+    .side-card p{ font-size: 14px; margin: 0; }
+
+    .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
+
+    /* Layout utilities */
+    .grid-2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .grid-3{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 14px;
+    }
+    .card{
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: var(--radius);
+      padding: 18px;
+    }
+
+    /* Price table */
+    .price-table{
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+    }
+    .price-table th, .price-table td{
+      padding: 14px 12px;
+      vertical-align: top;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+    }
+    .price-table th{
+      text-align: left;
+      font-size: 13px;
+      color: var(--muted);
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      background: rgba(255,255,255,.04);
+    }
+    .price-table td b{ color: var(--text); }
+    .price-table tr:last-child td{ border-bottom: 0; }
+    .price-table td:nth-child(2), .price-table td:nth-child(3), .price-table td:nth-child(4){
+      white-space: nowrap;
+      width: 96px;
+      text-align: right;
+      font-weight: 800;
+      color: rgba(255,255,255,.88);
+    }
+
+    /* Gallery */
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap: 12px;
+    }
+    .gallery figure{
+      margin: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      min-height: 130px;
+      position: relative;
+    }
+    .gallery img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+      transform: scale(1.01);
+    }
+    .gallery figcaption{
+      position:absolute;
+      left: 10px; bottom: 10px;
+      background: rgba(8,30,49,.72);
+      border: 1px solid rgba(255,255,255,.14);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      backdrop-filter: blur(8px);
+    }
+
+    /* Contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: start;
+    }
+    .contact-item{
+      display:flex; gap: 12px; align-items:flex-start;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+    }
+    .icon{
+      width: 40px; height: 40px;
+      border-radius: 14px;
+      background: rgba(56,198,217,.12);
+      border: 1px solid rgba(56,198,217,.25);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+    }
+    .contact-item b{ display:block; margin-bottom: 2px; }
+    .contact-item span{ color: var(--muted); font-size: 14px; }
+
+    footer{
+      padding: 30px 0 40px 0;
+      border-top: 1px solid rgba(255,255,255,.12);
+      background: rgba(8,30,49,.45);
+    }
+    .footer-inner{
+      display:flex; gap: 12px; flex-wrap: wrap;
+      align-items:center; justify-content: space-between;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .foot a{ color: var(--accent2); font-weight: 700; }
+
+    /* Mobile */
+    @media (max-width: 980px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .grid-3{ grid-template-columns: 1fr; }
+      .grid-2{ grid-template-columns: 1fr; }
+      .contact-grid{ grid-template-columns: 1fr; }
+      .nav-links{ display:none; }
+    }
+
+    /* Smooth scroll offset for sticky nav */
+    [id]{ scroll-margin-top: 80px; }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <div class="brand-badge" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+            <path d="M6 17c2.5 2 9.5 2 12 0" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8.5 12.5c.5-2 1.8-3.5 3.5-3.5s3 1.5 3.5 3.5" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 2v3" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div>
+          Bilvask Express AS
+          <small>Lillestrøm • Voldgata 58</small>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Hovedmeny">
+        <a href="#hero">Hero</a>
+        <a href="#om">Om</a>
+        <a href="#priser">Tjenester & priser</a>
+        <a href="#teknologi">Teknologi</a>
+        <a href="#bilder">Bilder</a>
+        <a href="#apningstider">Åpningstider</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+
+      <a class="btn primary" href="tel:+4791926901" aria-label="Ring Bilvask Express AS">Ring 919 26 901</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-card">
+        <span class="pill">Bilvask i Lillestrøm • Rett ved Coop</span>
+        <h1>Rask, skånsom og grundig bilvask</h1>
+        <p>
+          Hos <b>Bilvask Express AS</b> får du bilvask og bilpleie for <b>sedan, SUV og varebil</b>.
+          Vi ligger i <b>Voldgata 58, 2000 Lillestrøm</b> – på andre siden av <b>Coop</b>,
+          så du kan handle mens bilen vaskes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="tel:+4791926901">Ring nå</a>
+          <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Finn veien</a>
+          <a class="btn" href="#priser">Se priser</a>
+        </div>
+
+        <div class="hero-kpis">
+          <div class="kpi">
+            <b>Berøringsfri utvendig vask</b>
+            <span>Effektiv forvask, skum, høytrykk og skyll.</span>
+          </div>
+          <div class="kpi">
+            <b>Pakker for alle biltyper</b>
+            <span>Sedan, SUV og varebil – tydelige priser.</span>
+          </div>
+          <div class="kpi">
+            <b>Sentralt i Lillestrøm</b>
+            <span>Enkelt å kombinere med handling ved Coop.</span>
+          </div>
+          <div class="kpi">
+            <b>Booking kommer senere</b>
+            <span>Foreløpig bestiller du ved å ringe oss.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="side-card">
+          <h3>Åpningstider</h3>
+          <p><b>Man–Lør:</b> 08:00 – 19:00</p>
+        </div>
+
+        <div class="side-card">
+          <h3>Kontakt</h3>
+          <p><b>Telefon:</b> <a href="tel:+4791926901">919 26 901</a></p>
+          <p style="margin-top:6px"><b>Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
+        </div>
+
+        <div class="side-card">
+          <h3>Tips</h3>
+          <p>Skal du handle? Vi er rett på andre siden av Coop – det passer perfekt mens bilen vaskes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OM -->
+  <section id="om">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Om Bilvask Express AS</h2>
+          <p>Kvalitet, effektivitet og skånsom behandling – tilpasset bilen din.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Hva vi tilbyr</h3>
+          <p>
+            Vi tilbyr bilvask og bilpleie med fokus på en ryddig prosess og et godt sluttresultat.
+            Velg mellom utvendig vask, innvendig vask, rens, polering – eller fullpakke.
+          </p>
+          <p>
+            Vi har tydelige pakker for <b>sedan</b>, <b>SUV</b> og <b>varebil</b>, samt tilleggstjenester ved behov.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Praktisk beliggenhet</h3>
+          <p>
+            Vi holder til i <b>Voldgata 58</b> i Lillestrøm. Dette er et perfekt stopp når du vil bruke tiden smart:
+            lever bilen, handle på Coop, og hent en ren bil.
+          </p>
+          <div class="hero-actions" style="margin-top:10px">
+            <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Åpne kart</a>
+            <a class="btn" href="#kontakt">Kontakt oss</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRISER -->
+  <section id="priser">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Tjenester og priser</h2>
+          <p>Alle priser i NOK. Velg biltype: Sedan / SUV / Varebil.</p>
+        </div>
+      </div>
+
+      <div class="card" style="padding:0; overflow:hidden">
+        <table class="price-table" aria-label="Tjenester og priser">
+          <thead>
+            <tr>
+              <th style="width: 55%">Pakke / Innhold</th>
+              <th>Sedan</th>
+              <th>SUV</th>
+              <th>Varebil</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <b>Utvendig vask</b><br/>
+                <span style="color:var(--muted)">Skum, sjampo og felgvask</span>
+              </td>
+              <td>350,-</td><td>400,-</td><td>500,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Innvendig vask</b><br/>
+                <span style="color:var(--muted)">Støvsuging av hele bilen, vinduer, skylle matter og rens av dashbord</span>
+              </td>
+              <td>350,-</td><td>400,-</td><td>400,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Utvendig &amp; innvendig vask</b><br/>
+                <span style="color:var(--muted)">Skum, sjampo, tørkekammer, vinduer, støvsuging, dashbord, skylle matter</span>
+              </td>
+              <td>600,-</td><td>700,-</td><td>750,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Supervask</b><br/>
+                <span style="color:var(--muted)">Understellvask &amp; spyle rundt dekk. Avfetting, felgrens, skum, sjampo, felgvask, vask av matter, vinduer, dashbord, støvsuging, tørkekammer</span>
+              </td>
+              <td>650,-</td><td>750,-</td><td>800,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Dekk &amp; vask</b><br/>
+                <span style="color:var(--muted)">Dekkskift, dekkvask, inn- &amp; utvendig vask, understellsspyling, avfetting, felgrens</span>
+              </td>
+              <td>1100,-</td><td>1200,-</td><td>1400,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Polering</b><br/>
+                <span style="color:var(--muted)">Lakkrens, polering, voks, understellsvask, avfetting, felgrens, skum, sjampo, felgvask, tørkekammer</span>
+              </td>
+              <td>2000,-</td><td>2200,-</td><td>2500,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Innvendig rens</b><br/>
+                <span style="color:var(--muted)">Støvsuging, rens av seter/tepper, vask av matter, vinduer og dashbord</span><br/>
+                <span style="color:var(--muted)"><i>* +350kr pr. sete</i></span>
+              </td>
+              <td>2000,-</td><td>2200,-</td><td>2500,-</td>
+            </tr>
+            <tr>
+              <td>
+                <b>Fullpakke</b><br/>
+                <span style="color:var(--muted)">Lakkrens, polering, motorvask, understellsvask, avfetting, felgrens, skum, sjampo, felgvask, tørkekammer, rens av seter/tepper, vask av matter, vinduer, dashbord, støvsuging</span>
+              </td>
+              <td>3500,-</td><td>4000,-</td><td>4000,-</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid-3" style="margin-top:14px">
+        <div class="card">
+          <h3>Diverse arbeid</h3>
+          <p style="margin-bottom:10px">Tilleggstjenester etter behov:</p>
+          <p style="margin:0">
+            Voks: <b>50,-</b><br/>
+            Avfetting: <b>100,-</b><br/>
+            Understellvask: <b>100,-</b><br/>
+            Dekkvask: <b>100,-</b><br/>
+            Felgrens: <b>100,-</b><br/>
+            Motorvask: <b>300,-</b><br/>
+            Dekkskift: <b>fra 400,-</b><br/>
+            Lappe dekk: <b>300,-</b><br/>
+            Fjerning av hundehår: <b>etter avtale</b>
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Viktig</h3>
+          <p style="margin:0">Feil med motor er på eget ansvar.</p>
+          <p style="margin-top:10px">Ønsker du rask anbefaling av pakke? Ring oss, så guider vi deg basert på biltype og behov.</p>
+          <div class="hero-actions" style="margin-top:10px">
+            <a class="btn primary" href="tel:+4791926901">Ring 919 26 901</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Booking</h3>
+          <p style="margin:0">
+            Vi får egen bookingløsning senere. Foreløpig bestiller du ved å ringe.
+          </p>
+          <p style="margin-top:10px">Dette gjør at vi kan gi deg riktig tidsvindu, spesielt ved rens, polering og fullpakke.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEKNOLOGI -->
+  <section id="teknologi">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Teknologi og vaskeprosess</h2>
+          <p>Utvendig vask med moderne berøringsfri løsning (Sino Star-maskineri i hallen).</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Berøringsfri portalvask</h3>
+          <p>
+            Vi bruker berøringsfri utvendig vask for å rengjøre bilen med en kombinasjon av
+            <b>forvask/kjemi, skum, høytrykksdyser og grundig skylling</b>, etterfulgt av effektiv tørk.
+            Dette er et godt valg når du ønsker en skånsom vask som reduserer risikoen for kontaktmerker.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Fokus på detaljer</h3>
+          <p>
+            I pakkene våre inngår blant annet felgvask/felgrens, avfetting (ved behov), samt innvendige
+            tjenester som støvsuging, vinduer, matter og dashbord – avhengig av valgt pakke.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BILDER -->
+  <section id="bilder">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Bilder</h2>
+          <p>Bytt ut filnavnene under med dine faktiske bilder (samme mappe som index.html).</p>
+        </div>
+      </div>
+
+      <div class="gallery" role="list">
+        <figure role="listitem">
+          <img src="bilde-1-prisliste.jpg" alt="Prisliste Bilvask Express AS i Lillestrøm" />
+          <figcaption>Prisliste</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="bilde-2-fasade.jpg" alt="Fasade og bygg til bilvask i Lillestrøm" />
+          <figcaption>Fasade</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="bilde-3-hall.jpg" alt="Bil i vaskehall med berøringsfri vask" />
+          <figcaption>Vaskehall</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="bilde-4-venterom.jpg" alt="Venterom hos Bilvask Express AS" />
+          <figcaption>Venterom</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÅPNINGSTIDER -->
+  <section id="apningstider">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Åpningstider</h2>
+          <p>Kom innom i åpningstiden eller ring for å avklare kapasitet.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3>Man–Lør</h3>
+          <p style="font-size:18px; margin:0"><b>08:00 – 19:00</b></p>
+        </div>
+        <div class="card">
+          <h3>Smart stopp ved Coop</h3>
+          <p style="margin:0">Vi ligger rett på andre siden av Coop – det passer godt hvis du vil handle mens bilen vaskes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Kontakt</h2>
+          <p>Foreløpig bestilling på telefon. Booking kommer senere.</p>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M7 3h4l2 5-2 2c1.5 3 3.5 5 6 6l2-2 5 2v4c0 1-1 2-2 2C10 22 2 14 2 4c0-1 1-2 2-2h3z" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div>
+            <b>Telefon</b>
+            <span><a href="tel:+4791926901">919 26 901</a></span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
+              <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <b>Adresse</b>
+            <span>Voldgata 58, 2000 Lillestrøm</span><br/>
+            <span><a href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener" style="color:var(--accent2); font-weight:700;">Åpne i Google Maps</a></span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M4 7h16M4 12h10M4 17h16" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <b>Info</b>
+            <span>Bookingløsning kommer. Foreløpig: ring oss for tid og anbefalt pakke.</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+              <path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
+            </svg>
+          </div>
+          <div>
+            <b>Nærmeste landemerke</b>
+            <span>Rett på andre siden av Coop – perfekt kombinasjon av vask og handling.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:14px">
+        <a class="btn primary" href="tel:+4791926901">Ring 919 26 901</a>
+        <a class="btn" href="#hero">Til toppen</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="foot">
+        © <span id="year"></span> Bilvask Express AS • Voldgata 58, 2000 Lillestrøm
+      </div>
+      <div class="foot">
+        Levert av <a href="https://setaei.no" target="_blank" rel="noopener">Setaei.no</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Optional: smooth scroll for in-page anchors (works in modern browsers)
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+  </script>
+</body>
+</html>
