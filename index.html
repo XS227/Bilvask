@@ -2,23 +2,22 @@
 <html lang="no">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
 
-  <title>Bilvask Lillestrøm | Bilvask Express AS – Voldgata 58</title>
-  <meta name="description" content="Rask og skånsom bilvask i Lillestrøm. Pakker for sedan, SUV og varebil. Berøringsfri utvendig vask, innvendig vask, rens og polering. Ring 919 26 901." />
+  <title>Bilvask i Lillestrøm | Bilvask Express AS – Voldgata 58</title>
+  <meta name="description" content="Bilvask i Lillestrøm: utvendig, innvendig, rens og polering. Pakker for sedan, SUV og varebil. Rett ved Coop. Ring 919 26 901 eller bestill." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="" />
+  <meta name="theme-color" content="#0b2740" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Bilvask Lillestrøm | Bilvask Express AS" />
-  <meta property="og:description" content="Rask og skånsom bilvask i Lillestrøm. Ring 919 26 901. Voldgata 58 – rett ved Coop." />
+  <meta property="og:title" content="Bilvask i Lillestrøm | Bilvask Express AS" />
+  <meta property="og:description" content="Rask, skånsom og grundig bilvask i Lillestrøm. Rett ved Coop. Ring 919 26 901 eller bestill." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="og-cover.jpg" />
 
-  <!-- Favicon placeholders -->
   <link rel="icon" href="favicon.ico" />
 
-  <!-- Schema.org JSON-LD (LocalBusiness/AutoWash) -->
+  <!-- Schema.org JSON-LD (AutoWash) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,8 +37,6 @@
       "opens": "08:00",
       "closes": "19:00"
     }],
-    "url": "",
-    "priceRange": "$$",
     "sameAs": [
       "https://maps.app.goo.gl/aUYi53CLXqsCJw5a9",
       "https://www.proff.no/selskap/bilvask-express-as/lillestr%C3%B8m/bilverksteder/IF314M40064"
@@ -49,751 +46,1052 @@
 
   <style>
     :root{
-      /* Mørk blå (inspirert av prisplakat) + cyan aksent */
-      --bg: #0b2740;           /* primary dark blue */
-      --bg2: #081e31;          /* deeper for contrast */
+      --bg: #0b2740;     /* mørk blå */
+      --bg2:#071a2b;
       --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.09);
+      --card2: rgba(255,255,255,.10);
+      --line: rgba(255,255,255,.14);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.72);
-      --line: rgba(255,255,255,.16);
-      --accent: #38c6d9;       /* cyan family */
-      --accent2: #7fe7f2;
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
+
+      --cyan:#38c6d9;
+      --cyan2:#7fe7f2;
+
+      --yellow:#ffcc33;     /* gul */
+      --yellow2:#ffd86a;
+
+      --shadow: 0 16px 44px rgba(0,0,0,.35);
       --radius: 18px;
-      --max: 1120px;
+      --max: 1160px;
+
+      --navH: 64px;
     }
 
-    *{ box-sizing: border-box; }
-    html,body{ height: 100%; }
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
-      margin: 0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(56,198,217,.22), transparent 55%),
-                  radial-gradient(900px 500px at 90% 10%, rgba(127,231,242,.14), transparent 50%),
-                  linear-gradient(180deg, var(--bg2), var(--bg));
-      line-height: 1.55;
+      background:
+        radial-gradient(1100px 650px at 20% 0%, rgba(56,198,217,.18), transparent 55%),
+        radial-gradient(900px 520px at 90% 5%, rgba(255,204,51,.12), transparent 52%),
+        linear-gradient(180deg, var(--bg2), var(--bg));
+      line-height:1.55;
+      overflow-x:hidden;
     }
 
-    a{ color: inherit; text-decoration: none; }
-    a:hover{ opacity: .92; }
+    a{ color:inherit; text-decoration:none; }
+    .container{ width:min(var(--max), calc(100% - 32px)); margin:0 auto; }
 
-    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+    }
 
-    /* Sticky Nav */
+    /* Top bar */
     .nav{
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: blur(10px);
-      background: rgba(8,30,49,.72);
-      border-bottom: 1px solid var(--line);
+      position:sticky; top:0; z-index:60;
+      backdrop-filter: blur(12px);
+      background: rgba(7,26,43,.78);
+      border-bottom:1px solid var(--line);
+      height: var(--navH);
+      display:flex; align-items:center;
     }
-    .nav-inner{
-      display:flex; align-items:center; justify-content:space-between;
-      padding: 12px 0;
-      gap: 16px;
-    }
-    .brand{
-      display:flex; align-items:center; gap: 12px;
-      font-weight: 800; letter-spacing: .2px;
-    }
-    .brand-badge{
-      width: 40px; height: 40px; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(56,198,217,.35), rgba(255,255,255,.08));
-      border: 1px solid rgba(255,255,255,.16);
-      display:grid; place-items:center;
+    .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .badge{
+      width:42px;height:42px;border-radius:14px;
+      background: linear-gradient(135deg, rgba(56,198,217,.35), rgba(255,255,255,.06));
+      border:1px solid rgba(255,255,255,.18);
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
-      position: relative;
-      overflow: hidden;
+      display:grid; place-items:center;
+      flex:0 0 auto;
     }
-    .brand-badge:before{
-      content:"";
-      position:absolute; inset:-30%;
-      background: conic-gradient(from 160deg, rgba(56,198,217,.25), transparent 45%, rgba(127,231,242,.20));
-      transform: rotate(10deg);
+    .brand-text{ min-width:0; }
+    .brand-text b{
+      display:block;
+      font-size:14px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
     }
-    .brand-badge svg{ position: relative; }
-    .brand small{ display:block; font-weight:600; color: var(--muted); }
+    .brand-text span{
+      display:block;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
+    .nav-actions{ display:flex; align-items:center; gap:10px; }
     .nav-links{
-      display:flex; gap: 14px; flex-wrap: wrap; justify-content:flex-end;
-      font-size: 14px; color: var(--muted);
+      display:flex; gap:10px; align-items:center;
+      color:var(--muted); font-size:14px;
     }
     .nav-links a{
-      padding: 8px 10px; border-radius: 12px;
-      border: 1px solid transparent;
+      padding:10px 10px; border-radius:12px;
+      border:1px solid transparent;
+      transition:.15s ease;
     }
     .nav-links a:hover{
-      border-color: rgba(255,255,255,.14);
+      color:var(--text);
       background: rgba(255,255,255,.05);
-      color: var(--text);
+      border-color: rgba(255,255,255,.14);
     }
 
-    /* Buttons */
     .btn{
       display:inline-flex; align-items:center; justify-content:center;
-      gap: 10px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.18);
+      gap:10px;
+      padding:12px 14px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.06);
-      color: var(--text);
-      font-weight: 700;
-      box-shadow: 0 10px 24px rgba(0,0,0,.25);
+      color:var(--text);
+      font-weight:800;
+      box-shadow: 0 10px 24px rgba(0,0,0,.22);
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
-      cursor: pointer;
-      user-select: none;
+      cursor:pointer;
+      user-select:none;
+      white-space:nowrap;
     }
-    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.085); }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.28); }
     .btn.primary{
-      background: linear-gradient(135deg, rgba(56,198,217,.85), rgba(56,198,217,.22));
-      border-color: rgba(56,198,217,.55);
-      color: #07202c;
+      background: linear-gradient(135deg, rgba(255,204,51,.95), rgba(255,204,51,.20));
+      border-color: rgba(255,204,51,.55);
+      color:#1a1a1a;
     }
-    .btn.primary:hover{ background: linear-gradient(135deg, rgba(127,231,242,.95), rgba(56,198,217,.25)); }
+    .btn.primary:hover{ background: linear-gradient(135deg, rgba(255,216,106,.98), rgba(255,204,51,.22)); }
+    .btn.ghost{ box-shadow:none; }
 
-    .pill{
-      display:inline-flex;
-      gap: 10px; align-items:center;
-      padding: 8px 12px;
-      border-radius: 999px;
+    .hamburger{
+      display:none;
+      width:44px;height:44px;border-radius:14px;
+      border:1px solid rgba(255,255,255,.18);
       background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.14);
-      color: var(--muted);
-      font-size: 14px;
+      align-items:center; justify-content:center;
+      cursor:pointer;
+    }
+    .hamburger svg{ opacity:.9; }
+    .mobile-menu{
+      display:none;
+      position:fixed; left:0; right:0; top: var(--navH);
+      background: rgba(7,26,43,.92);
+      border-bottom:1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+      padding:12px 16px 16px 16px;
+      z-index:59;
+    }
+    .mobile-menu a{
+      display:flex; padding:12px 12px; border-radius:14px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+      margin:10px 0;
+      color: var(--text);
+      font-weight:700;
     }
 
     /* Sections */
-    section{ padding: 56px 0; }
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between; gap: 16px;
-      margin-bottom: 20px;
-    }
-    h1,h2,h3{ margin: 0 0 8px 0; line-height: 1.1; }
-    h1{ font-size: clamp(34px, 5vw, 52px); letter-spacing: -0.5px; }
-    h2{ font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.2px; }
-    p{ margin: 0 0 12px 0; color: var(--muted); }
+    section{ padding: 52px 0; }
+    [id]{ scroll-margin-top: calc(var(--navH) + 18px); }
 
-    /* Hero with "building" shapes */
-    .hero{
-      position: relative;
-      padding: 54px 0 38px 0;
-      overflow: hidden;
+    h1,h2,h3{ margin:0; line-height:1.1; }
+    h1{ font-size: clamp(34px, 6vw, 56px); letter-spacing:-.6px; }
+    h2{ font-size: clamp(24px, 4vw, 36px); letter-spacing:-.3px; }
+    p{ margin: 10px 0 0 0; color: var(--muted); }
+
+    .pill{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--muted);
+      font-size:14px;
+      width: fit-content;
     }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 26px;
-      align-items: start;
-    }
-    .hero-card{
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      border: 1px solid rgba(255,255,255,.14);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-    .hero-card:before{
-      /* subtle gable roof line */
-      content:"";
-      position:absolute; right:-120px; top:-160px;
-      width: 460px; height: 360px;
-      background: linear-gradient(135deg, rgba(56,198,217,.28), transparent 60%);
-      transform: rotate(18deg);
-      border-radius: 80px;
-      filter: blur(0px);
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--yellow);
+      box-shadow: 0 0 0 6px rgba(255,204,51,.12);
     }
 
-    .hero-kpis{
-      display:grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 12px;
-      margin-top: 16px;
-    }
-    .kpi{
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 16px;
-      padding: 12px;
-    }
-    .kpi b{ display:block; color: var(--text); }
-    .kpi span{ color: var(--muted); font-size: 13px; }
-
-    .hero-side{
-      display:flex; flex-direction: column; gap: 14px;
-    }
-    .side-card{
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: var(--radius);
-      padding: 16px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.22);
-      position: relative;
-      overflow: hidden;
-    }
-    .side-card:after{
-      /* "portal" frame hint */
-      content:"";
-      position:absolute; right: -10px; bottom: -10px;
-      width: 120px; height: 90px;
-      border: 2px solid rgba(127,231,242,.22);
-      border-top-left-radius: 16px;
-      border-top-right-radius: 16px;
-      border-bottom: 0;
-      opacity: .7;
-    }
-    .side-card h3{ font-size: 16px; margin-bottom: 6px; }
-    .side-card p{ font-size: 14px; margin: 0; }
-
-    .hero-actions{ display:flex; gap: 12px; flex-wrap: wrap; margin-top: 14px; }
-
-    /* Layout utilities */
-    .grid-2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .grid-3{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-    }
     .card{
       background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.12);
+      border:1px solid rgba(255,255,255,.12);
       border-radius: var(--radius);
-      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+    .card.soft{ box-shadow: 0 12px 28px rgba(0,0,0,.22); }
+    .card.pad{ padding:18px; }
+
+    /* Hero */
+    .hero{
+      padding: 42px 0 26px 0;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-wrap{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .hero-main{
+      position:relative;
+      padding:22px;
+      overflow:hidden;
+    }
+    .hero-main::before{
+      content:"";
+      position:absolute; inset:-40% -30% auto auto;
+      width:520px;height:420px;
+      background: linear-gradient(135deg, rgba(56,198,217,.22), transparent 55%);
+      transform: rotate(18deg);
+      border-radius: 90px;
+      pointer-events:none;
+    }
+    .hero-main::after{
+      content:"";
+      position:absolute; left:-10px; bottom:-10px;
+      width:210px;height:150px;
+      border:2px solid rgba(255,204,51,.22);
+      border-top-left-radius: 22px;
+      border-top-right-radius: 22px;
+      border-bottom:0;
+      opacity:.7;
+      pointer-events:none;
     }
 
-    /* Price table */
-    .price-table{
-      width: 100%;
-      border-collapse: collapse;
-      overflow: hidden;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.03);
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top: 16px;
     }
-    .price-table th, .price-table td{
-      padding: 14px 12px;
-      vertical-align: top;
-      border-bottom: 1px solid rgba(255,255,255,.10);
+
+    .promo{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      margin-top:16px;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: linear-gradient(135deg, rgba(255,204,51,.16), rgba(255,255,255,.04));
     }
-    .price-table th{
-      text-align: left;
-      font-size: 13px;
-      color: var(--muted);
-      letter-spacing: .4px;
-      text-transform: uppercase;
+    .promo b{ color: var(--yellow2); }
+    .promo small{ color: var(--muted); display:block; }
+
+    .hero-side{
+      display:grid;
+      gap: 14px;
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 18px;
+    }
+    .kpi{
+      padding:12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      transition: transform .2s ease, border-color .2s ease;
+    }
+    .kpi:hover{ transform: translateY(-2px); border-color: rgba(255,255,255,.22); }
+    .kpi b{ display:block; }
+    .kpi span{ display:block; margin-top:4px; color:var(--muted); font-size:13px; }
+
+    /* Bubbles canvas */
+    .bubble-canvas{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      opacity:.95;
+      mix-blend-mode: screen;
+    }
+    .logo-svg{
+      position:absolute;
+      right: 18px;
+      top: 18px;
+      width: 180px;
+      height: 90px;
+      opacity: 0; /* used as hidden template */
+      pointer-events:none;
+    }
+
+    /* Services / packages */
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin-bottom: 16px;
+    }
+    .grid-2{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; }
+    .grid-3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
+    .grid-4{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:12px; }
+
+    .product{
+      padding:16px;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      position:relative;
+      overflow:hidden;
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
+      min-height: 170px;
+    }
+    .product:hover{
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.065);
+    }
+    .product .tag{
+      position:absolute;
+      right: 12px;
+      top: 12px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.2px;
+      color:#1a1a1a;
+      background: rgba(255,204,51,.95);
+      border: 1px solid rgba(255,204,51,.45);
+    }
+    .product h3{ font-size:16px; margin-top:10px; }
+    .product ul{
+      margin:10px 0 0 0;
+      padding:0;
+      list-style:none;
+      color:var(--muted);
+      font-size:14px;
+    }
+    .product li{ display:flex; gap:8px; margin:6px 0; }
+    .check{
+      width:18px;height:18px; border-radius:6px;
+      background: rgba(56,198,217,.16);
+      border:1px solid rgba(56,198,217,.28);
+      display:grid; place-items:center;
+      flex: 0 0 auto;
+      margin-top:2px;
+    }
+
+    .prices{
+      margin-top: 12px;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:8px;
+    }
+    .price-row{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
+      font-weight:800;
     }
-    .price-table td b{ color: var(--text); }
-    .price-table tr:last-child td{ border-bottom: 0; }
-    .price-table td:nth-child(2), .price-table td:nth-child(3), .price-table td:nth-child(4){
-      white-space: nowrap;
-      width: 96px;
-      text-align: right;
-      font-weight: 800;
-      color: rgba(255,255,255,.88);
+    .price-row span{ color:var(--muted); font-weight:700; }
+
+    /* Icon rows */
+    .icon-row{
+      display:flex; gap:10px; flex-wrap:wrap;
+      margin-top:12px;
     }
+    .service-pill{
+      display:flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-weight:700;
+    }
+    .service-pill svg{ opacity:.92; }
 
     /* Gallery */
     .gallery{
       display:grid;
-      grid-template-columns: repeat(4, minmax(0,1fr));
+      grid-template-columns: repeat(12, 1fr);
       gap: 12px;
     }
-    .gallery figure{
-      margin: 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,.14);
+    .shot{
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.03);
-      min-height: 130px;
-      position: relative;
+      position:relative;
+      min-height: 180px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
     }
-    .gallery img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display:block;
+    .shot img{
+      width:100%; height:100%; display:block;
+      object-fit:cover;
       transform: scale(1.01);
+      filter: saturate(1.02) contrast(1.03);
+      transition: transform .35s ease, filter .35s ease;
     }
-    .gallery figcaption{
+    .shot:hover img{ transform: scale(1.06); filter: saturate(1.06) contrast(1.06); }
+    .cap{
       position:absolute;
-      left: 10px; bottom: 10px;
-      background: rgba(8,30,49,.72);
-      border: 1px solid rgba(255,255,255,.14);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 12px;
+      left:12px; bottom:12px;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,26,43,.70);
+      backdrop-filter: blur(10px);
       color: var(--muted);
-      backdrop-filter: blur(8px);
+      font-weight:800;
+      font-size:12px;
+      display:flex; align-items:center; gap:10px;
+    }
+    .cap i{
+      width:8px;height:8px;border-radius:999px;
+      background: var(--cyan2);
+      box-shadow: 0 0 0 6px rgba(127,231,242,.10);
+      display:inline-block;
     }
 
-    /* Contact */
-    .contact-grid{
+    /* Map */
+    .map{
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      height: 380px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    }
+    .map iframe{ width:100%; height:100%; border:0; }
+
+    /* Contact cards */
+    .contact{
       display:grid;
       grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: start;
+      gap:12px;
     }
     .contact-item{
-      display:flex; gap: 12px; align-items:flex-start;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(255,255,255,.14);
+      display:flex; gap:12px; align-items:flex-start;
+      padding:14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
     }
     .icon{
-      width: 40px; height: 40px;
-      border-radius: 14px;
-      background: rgba(56,198,217,.12);
-      border: 1px solid rgba(56,198,217,.25);
+      width:42px;height:42px;border-radius:14px;
+      background: rgba(56,198,217,.10);
+      border:1px solid rgba(56,198,217,.24);
       display:grid; place-items:center;
-      flex: 0 0 auto;
+      flex:0 0 auto;
     }
-    .contact-item b{ display:block; margin-bottom: 2px; }
-    .contact-item span{ color: var(--muted); font-size: 14px; }
+    .contact-item b{ display:block; }
+    .contact-item span{ color:var(--muted); font-size:14px; }
 
     footer{
-      padding: 30px 0 40px 0;
+      padding: 30px 0 42px 0;
       border-top: 1px solid rgba(255,255,255,.12);
-      background: rgba(8,30,49,.45);
+      background: rgba(7,26,43,.50);
     }
     .footer-inner{
-      display:flex; gap: 12px; flex-wrap: wrap;
-      align-items:center; justify-content: space-between;
+      display:flex; gap:12px; flex-wrap:wrap;
+      align-items:center; justify-content:space-between;
       color: var(--muted);
-      font-size: 14px;
+      font-size:14px;
     }
-    .foot a{ color: var(--accent2); font-weight: 700; }
+    .footer-inner a{ color: var(--yellow2); font-weight:900; }
 
-    /* Mobile */
+    /* Responsive */
     @media (max-width: 980px){
-      .hero-grid{ grid-template-columns: 1fr; }
-      .gallery{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .nav-links{ display:none; }
+      .hamburger{ display:flex; }
+      .hero-wrap{ grid-template-columns: 1fr; }
+      .kpis{ grid-template-columns: 1fr; }
       .grid-3{ grid-template-columns: 1fr; }
       .grid-2{ grid-template-columns: 1fr; }
-      .contact-grid{ grid-template-columns: 1fr; }
-      .nav-links{ display:none; }
+      .grid-4{ grid-template-columns: 1fr; }
+      .contact{ grid-template-columns: 1fr; }
+      .map{ height: 320px; }
     }
 
-    /* Smooth scroll offset for sticky nav */
-    [id]{ scroll-margin-top: 80px; }
+    /* Gallery layout columns */
+    .shot.w6{ grid-column: span 6; }
+    .shot.w4{ grid-column: span 4; }
+    .shot.w8{ grid-column: span 8; }
+    @media (max-width: 980px){
+      .shot.w6,.shot.w4,.shot.w8{ grid-column: span 12; }
+      .shot{ min-height: 210px; }
+    }
   </style>
 </head>
 
 <body>
-  <!-- NAV -->
   <header class="nav">
     <div class="container nav-inner">
       <div class="brand">
-        <div class="brand-badge" aria-hidden="true">
+        <div class="badge" aria-hidden="true">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-            <path d="M6 17c2.5 2 9.5 2 12 0" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M8.5 12.5c.5-2 1.8-3.5 3.5-3.5s3 1.5 3.5 3.5" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 2v3" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 17c2.5 2 9.5 2 12 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M8.5 12.5c.5-2 1.8-3.5 3.5-3.5s3 1.5 3.5 3.5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 2v3" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <div>
-          Bilvask Express AS
-          <small>Lillestrøm • Voldgata 58</small>
+        <div class="brand-text">
+          <b>Bilvask Express AS</b>
+          <span>Voldgata 58 • Lillestrøm</span>
         </div>
       </div>
 
       <nav class="nav-links" aria-label="Hovedmeny">
-        <a href="#hero">Hero</a>
-        <a href="#om">Om</a>
-        <a href="#priser">Tjenester & priser</a>
-        <a href="#teknologi">Teknologi</a>
+        <a href="#tjenester">Tjenester</a>
+        <a href="#pakker">Pakker</a>
         <a href="#bilder">Bilder</a>
-        <a href="#apningstider">Åpningstider</a>
+        <a href="#kart">Kart</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
-      <a class="btn primary" href="tel:+4791926901" aria-label="Ring Bilvask Express AS">Ring 919 26 901</a>
+      <div class="nav-actions">
+        <a class="btn ghost" href="tel:+4791926901" aria-label="Ring Bilvask Express">Ring</a>
+        <a class="btn primary" href="#pakker" aria-label="Bestill">Bestill</a>
+
+        <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
   </header>
 
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <div class="container hero-grid">
-      <div class="hero-card">
-        <span class="pill">Bilvask i Lillestrøm • Rett ved Coop</span>
-        <h1>Rask, skånsom og grundig bilvask</h1>
+  <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+    <a href="#tjenester">Tjenester</a>
+    <a href="#pakker">Pakker</a>
+    <a href="#bilder">Bilder</a>
+    <a href="#kart">Kart</a>
+    <a href="#kontakt">Kontakt</a>
+    <a href="tel:+4791926901">Ring 919 26 901</a>
+  </div>
+
+  <section class="hero" id="top">
+    <canvas class="bubble-canvas" id="bubbleCanvas"></canvas>
+
+    <!-- Hidden template logo (used for sampling points) -->
+    <svg class="logo-svg" id="logoTemplate" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Simple car line + bubbles style -->
+      <path id="carPath" d="M40 92 C70 70, 110 58, 150 58 C178 58, 205 65, 228 74
+                           C250 84, 270 90, 284 90
+                           C300 90, 308 98, 308 110
+                           L308 118 C308 126, 300 132, 292 132
+                           L280 132
+                           C278 118, 266 108, 252 108
+                           C238 108, 226 118, 224 132
+                           L116 132
+                           C114 118, 102 108, 88 108
+                           C74 108, 62 118, 60 132
+                           L46 132
+                           C34 132, 24 122, 24 110
+                           C24 100, 30 96, 40 92 Z"
+            fill="none" stroke="#ffffff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+      <circle cx="88" cy="132" r="18" fill="none" stroke="#ffffff" stroke-width="10"/>
+      <circle cx="252" cy="132" r="18" fill="none" stroke="#ffffff" stroke-width="10"/>
+      <path d="M106 60 L130 34 C136 28, 144 24, 152 24 L192 24 C200 24, 208 28, 214 34 L238 58"
+            fill="none" stroke="#ffffff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+    </svg>
+
+    <div class="container hero-wrap">
+      <div class="card hero-main soft">
+        <div class="pill"><span class="dot"></span> Bilvask i Lillestrøm • Rett ved Coop</div>
+        <h1 style="margin-top:12px">Ny profil. Samme fokus: ren bil.</h1>
         <p>
-          Hos <b>Bilvask Express AS</b> får du bilvask og bilpleie for <b>sedan, SUV og varebil</b>.
-          Vi ligger i <b>Voldgata 58, 2000 Lillestrøm</b> – på andre siden av <b>Coop</b>,
-          så du kan handle mens bilen vaskes.
+          Utvendig vask, innvendig vask, rens og polering – med pakker for sedan, SUV og varebil.
+          Kom innom eller ring oss for tid.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="tel:+4791926901">Ring nå</a>
+          <a class="btn primary" href="#pakker">Bestill</a>
+          <a class="btn" href="tel:+4791926901">Ring 919 26 901</a>
           <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Finn veien</a>
-          <a class="btn" href="#priser">Se priser</a>
         </div>
 
-        <div class="hero-kpis">
+        <div class="promo">
+          <div>
+            <b>TILBUD</b>
+            <small>Utvendig bilvask fra</small>
+          </div>
+          <div style="font-size:28px; font-weight:1000; color:var(--yellow); letter-spacing:-.5px;">199,-</div>
+        </div>
+
+        <div class="kpis">
           <div class="kpi">
-            <b>Berøringsfri utvendig vask</b>
-            <span>Effektiv forvask, skum, høytrykk og skyll.</span>
+            <b>Skånsomt og effektivt</b>
+            <span>Forvask, skum, grundig skylling og tørk.</span>
           </div>
           <div class="kpi">
-            <b>Pakker for alle biltyper</b>
-            <span>Sedan, SUV og varebil – tydelige priser.</span>
-          </div>
-          <div class="kpi">
-            <b>Sentralt i Lillestrøm</b>
-            <span>Enkelt å kombinere med handling ved Coop.</span>
-          </div>
-          <div class="kpi">
-            <b>Booking kommer senere</b>
-            <span>Foreløpig bestiller du ved å ringe oss.</span>
+            <b>Raskt stopp ved Coop</b>
+            <span>Handle mens bilen vaskes.</span>
           </div>
         </div>
       </div>
 
       <div class="hero-side">
-        <div class="side-card">
+        <div class="card pad soft">
           <h3>Åpningstider</h3>
-          <p><b>Man–Lør:</b> 08:00 – 19:00</p>
+          <p><b style="color:var(--text)">Man–Lør:</b> 08:00 – 19:00</p>
         </div>
 
-        <div class="side-card">
+        <div class="card pad soft">
+          <h3>Adresse</h3>
+          <p>Voldgata 58, 2000 Lillestrøm</p>
+          <div class="hero-actions" style="margin-top:12px">
+            <a class="btn" href="#kart">Se kart</a>
+            <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Rute</a>
+          </div>
+        </div>
+
+        <div class="card pad soft">
           <h3>Kontakt</h3>
-          <p><b>Telefon:</b> <a href="tel:+4791926901">919 26 901</a></p>
-          <p style="margin-top:6px"><b>Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
-        </div>
-
-        <div class="side-card">
-          <h3>Tips</h3>
-          <p>Skal du handle? Vi er rett på andre siden av Coop – det passer perfekt mens bilen vaskes.</p>
+          <p><b style="color:var(--text)">Telefon:</b> <a href="tel:+4791926901" style="color:var(--yellow2); font-weight:900;">919 26 901</a></p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- OM -->
-  <section id="om">
+  <section id="tjenester">
     <div class="container">
       <div class="section-title">
         <div>
-          <h2>Om Bilvask Express AS</h2>
-          <p>Kvalitet, effektivitet og skånsom behandling – tilpasset bilen din.</p>
+          <h2>Tjenester</h2>
+          <p>Velg pakke, eller legg til ekstra arbeid ved behov.</p>
         </div>
+        <a class="btn primary" href="#pakker">Bestill</a>
       </div>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3>Hva vi tilbyr</h3>
-          <p>
-            Vi tilbyr bilvask og bilpleie med fokus på en ryddig prosess og et godt sluttresultat.
-            Velg mellom utvendig vask, innvendig vask, rens, polering – eller fullpakke.
-          </p>
-          <p>
-            Vi har tydelige pakker for <b>sedan</b>, <b>SUV</b> og <b>varebil</b>, samt tilleggstjenester ved behov.
-          </p>
+      <div class="icon-row">
+        <div class="service-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 14c2-6 14-6 16 0" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 14v4M18 14v4" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Utvendig vask
         </div>
+        <div class="service-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 20V8l8-4 8 4v12" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
+            <path d="M9 20v-7h6v7" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Innvendig vask
+        </div>
+        <div class="service-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M4 16c6 4 10 4 16 0" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M7 10c.6-2 2.2-4 5-4s4.4 2 5 4" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Rens / detailing
+        </div>
+        <div class="service-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
+          </svg>
+          Polering / voks
+        </div>
+        <div class="service-pill">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+            <path d="M7 18a5 5 0 1 1 10 0" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M12 3v8" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Understellvask
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="card">
-          <h3>Praktisk beliggenhet</h3>
-          <p>
-            Vi holder til i <b>Voldgata 58</b> i Lillestrøm. Dette er et perfekt stopp når du vil bruke tiden smart:
-            lever bilen, handle på Coop, og hent en ren bil.
-          </p>
-          <div class="hero-actions" style="margin-top:10px">
-            <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Åpne kart</a>
-            <a class="btn" href="#kontakt">Kontakt oss</a>
+  <section id="pakker">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Pakker</h2>
+          <p>Én “Bestill”-knapp nå. Nettbetaling legges til senere.</p>
+        </div>
+        <a class="btn primary" href="#kontakt">Bestill</a>
+      </div>
+
+      <div class="grid-3">
+        <!-- 1 -->
+        <div class="product">
+          <div class="tag">Mest valgt</div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true" style="background:rgba(255,204,51,.10); border-color:rgba(255,204,51,.25);">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M4 14c2-6 14-6 16 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 14v4M18 14v4" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Utvendig vask</h3>
+              <p style="margin:2px 0 0 0;">Skum, sjampo og felgvask</p>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- PRISER -->
-  <section id="priser">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Tjenester og priser</h2>
-          <p>Alle priser i NOK. Velg biltype: Sedan / SUV / Varebil.</p>
-        </div>
-      </div>
-
-      <div class="card" style="padding:0; overflow:hidden">
-        <table class="price-table" aria-label="Tjenester og priser">
-          <thead>
-            <tr>
-              <th style="width: 55%">Pakke / Innhold</th>
-              <th>Sedan</th>
-              <th>SUV</th>
-              <th>Varebil</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <b>Utvendig vask</b><br/>
-                <span style="color:var(--muted)">Skum, sjampo og felgvask</span>
-              </td>
-              <td>350,-</td><td>400,-</td><td>500,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Innvendig vask</b><br/>
-                <span style="color:var(--muted)">Støvsuging av hele bilen, vinduer, skylle matter og rens av dashbord</span>
-              </td>
-              <td>350,-</td><td>400,-</td><td>400,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Utvendig &amp; innvendig vask</b><br/>
-                <span style="color:var(--muted)">Skum, sjampo, tørkekammer, vinduer, støvsuging, dashbord, skylle matter</span>
-              </td>
-              <td>600,-</td><td>700,-</td><td>750,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Supervask</b><br/>
-                <span style="color:var(--muted)">Understellvask &amp; spyle rundt dekk. Avfetting, felgrens, skum, sjampo, felgvask, vask av matter, vinduer, dashbord, støvsuging, tørkekammer</span>
-              </td>
-              <td>650,-</td><td>750,-</td><td>800,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Dekk &amp; vask</b><br/>
-                <span style="color:var(--muted)">Dekkskift, dekkvask, inn- &amp; utvendig vask, understellsspyling, avfetting, felgrens</span>
-              </td>
-              <td>1100,-</td><td>1200,-</td><td>1400,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Polering</b><br/>
-                <span style="color:var(--muted)">Lakkrens, polering, voks, understellsvask, avfetting, felgrens, skum, sjampo, felgvask, tørkekammer</span>
-              </td>
-              <td>2000,-</td><td>2200,-</td><td>2500,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Innvendig rens</b><br/>
-                <span style="color:var(--muted)">Støvsuging, rens av seter/tepper, vask av matter, vinduer og dashbord</span><br/>
-                <span style="color:var(--muted)"><i>* +350kr pr. sete</i></span>
-              </td>
-              <td>2000,-</td><td>2200,-</td><td>2500,-</td>
-            </tr>
-            <tr>
-              <td>
-                <b>Fullpakke</b><br/>
-                <span style="color:var(--muted)">Lakkrens, polering, motorvask, understellsvask, avfetting, felgrens, skum, sjampo, felgvask, tørkekammer, rens av seter/tepper, vask av matter, vinduer, dashbord, støvsuging</span>
-              </td>
-              <td>3500,-</td><td>4000,-</td><td>4000,-</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <div class="grid-3" style="margin-top:14px">
-        <div class="card">
-          <h3>Diverse arbeid</h3>
-          <p style="margin-bottom:10px">Tilleggstjenester etter behov:</p>
-          <p style="margin:0">
-            Voks: <b>50,-</b><br/>
-            Avfetting: <b>100,-</b><br/>
-            Understellvask: <b>100,-</b><br/>
-            Dekkvask: <b>100,-</b><br/>
-            Felgrens: <b>100,-</b><br/>
-            Motorvask: <b>300,-</b><br/>
-            Dekkskift: <b>fra 400,-</b><br/>
-            Lappe dekk: <b>300,-</b><br/>
-            Fjerning av hundehår: <b>etter avtale</b>
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Viktig</h3>
-          <p style="margin:0">Feil med motor er på eget ansvar.</p>
-          <p style="margin-top:10px">Ønsker du rask anbefaling av pakke? Ring oss, så guider vi deg basert på biltype og behov.</p>
-          <div class="hero-actions" style="margin-top:10px">
-            <a class="btn primary" href="tel:+4791926901">Ring 919 26 901</a>
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 350,-</div>
+            <div class="price-row"><span>SUV</span> 400,-</div>
+            <div class="price-row"><span>Varebil</span> 500,-</div>
           </div>
         </div>
 
-        <div class="card">
-          <h3>Booking</h3>
-          <p style="margin:0">
-            Vi får egen bookingløsning senere. Foreløpig bestiller du ved å ringe.
-          </p>
-          <p style="margin-top:10px">Dette gjør at vi kan gi deg riktig tidsvindu, spesielt ved rens, polering og fullpakke.</p>
+        <!-- 2 -->
+        <div class="product">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M4 20V8l8-4 8 4v12" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M9 20v-7h6v7" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Innvendig vask</h3>
+              <p style="margin:2px 0 0 0;">Støvsuging, vinduer, matter, dashbord</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 350,-</div>
+            <div class="price-row"><span>SUV</span> 400,-</div>
+            <div class="price-row"><span>Varebil</span> 400,-</div>
+          </div>
         </div>
+
+        <!-- 3 -->
+        <div class="product">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M4 14c2-6 14-6 16 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 3v6" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 9h8" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Utvendig &amp; innvendig</h3>
+              <p style="margin:2px 0 0 0;">Skum, sjampo, tørk, vinduer, støvsuging</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 600,-</div>
+            <div class="price-row"><span>SUV</span> 700,-</div>
+            <div class="price-row"><span>Varebil</span> 750,-</div>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="product">
+          <div class="tag" style="background:rgba(56,198,217,.9); border-color:rgba(56,198,217,.4); color:#071a2b;">Pro</div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M7 18a5 5 0 1 1 10 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 3v8" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5 12h14" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Supervask</h3>
+              <p style="margin:2px 0 0 0;">Understell, avfetting, felgrens, innvendig</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 650,-</div>
+            <div class="price-row"><span>SUV</span> 750,-</div>
+            <div class="price-row"><span>Varebil</span> 800,-</div>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="product">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="8" cy="17" r="3" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+                <circle cx="16" cy="17" r="3" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+                <path d="M4 17c0-6 2-10 8-10s8 4 8 10" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Dekk &amp; vask</h3>
+              <p style="margin:2px 0 0 0;">Dekkskift, dekkvask + inn/utvendig</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 1100,-</div>
+            <div class="price-row"><span>SUV</span> 1200,-</div>
+            <div class="price-row"><span>Varebil</span> 1400,-</div>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="product">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3 7 7 3-7 3-3 7-3-7-7-3 7-3 3-7z" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Polering</h3>
+              <p style="margin:2px 0 0 0;">Lakkrens, polering, voks + vask</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 2000,-</div>
+            <div class="price-row"><span>SUV</span> 2200,-</div>
+            <div class="price-row"><span>Varebil</span> 2500,-</div>
+          </div>
+        </div>
+
+        <!-- 7 -->
+        <div class="product">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M6 19c4 2 8 2 12 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M8 10c.8-3 2.6-5 4-5s3.2 2 4 5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M12 4v2" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Innvendig rens</h3>
+              <p style="margin:2px 0 0 0;">Rens av seter/tepper + vinduer/dashbord</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 2000,-</div>
+            <div class="price-row"><span>SUV</span> 2200,-</div>
+            <div class="price-row"><span>Varebil</span> 2500,-</div>
+          </div>
+        </div>
+
+        <!-- 8 -->
+        <div class="product">
+          <div class="tag">Full</div>
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M4 14c2-6 14-6 16 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M6 14v4M18 14v4" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M7 8h10" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+                <path d="M9 5h6" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Fullpakke</h3>
+              <p style="margin:2px 0 0 0;">Polering, motor/understell, rens + vask</p>
+            </div>
+          </div>
+
+          <div class="prices">
+            <div class="price-row"><span>Sedan</span> 3500,-</div>
+            <div class="price-row"><span>SUV</span> 4000,-</div>
+            <div class="price-row"><span>Varebil</span> 4000,-</div>
+          </div>
+        </div>
+
+        <!-- 9: Extras -->
+        <div class="product">
+          <div style="display:flex; gap:12px; align-items:center;">
+            <div class="icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+                <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+              </svg>
+            </div>
+            <div>
+              <h3>Diverse arbeid</h3>
+              <p style="margin:2px 0 0 0;">Tilleggstjenester</p>
+            </div>
+          </div>
+
+          <ul>
+            <li><span class="check">✓</span> Voks 50,- • Avfetting 100,-</li>
+            <li><span class="check">✓</span> Understellvask 100,- • Dekkvask 100,-</li>
+            <li><span class="check">✓</span> Felgrens 100,- • Motorvask 300,-</li>
+            <li><span class="check">✓</span> Dekkskift fra 400,- • Lappe dekk 300,-</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-actions" style="margin-top:16px">
+        <a class="btn primary" href="#kontakt">Bestill</a>
+        <a class="btn" href="tel:+4791926901">Ring 919 26 901</a>
       </div>
     </div>
   </section>
 
-  <!-- TEKNOLOGI -->
-  <section id="teknologi">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Teknologi og vaskeprosess</h2>
-          <p>Utvendig vask med moderne berøringsfri løsning (Sino Star-maskineri i hallen).</p>
-        </div>
-      </div>
-
-      <div class="grid-2">
-        <div class="card">
-          <h3>Berøringsfri portalvask</h3>
-          <p>
-            Vi bruker berøringsfri utvendig vask for å rengjøre bilen med en kombinasjon av
-            <b>forvask/kjemi, skum, høytrykksdyser og grundig skylling</b>, etterfulgt av effektiv tørk.
-            Dette er et godt valg når du ønsker en skånsom vask som reduserer risikoen for kontaktmerker.
-          </p>
-        </div>
-
-        <div class="card">
-          <h3>Fokus på detaljer</h3>
-          <p>
-            I pakkene våre inngår blant annet felgvask/felgrens, avfetting (ved behov), samt innvendige
-            tjenester som støvsuging, vinduer, matter og dashbord – avhengig av valgt pakke.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BILDER -->
   <section id="bilder">
     <div class="container">
       <div class="section-title">
         <div>
           <h2>Bilder</h2>
-          <p>Bytt ut filnavnene under med dine faktiske bilder (samme mappe som index.html).</p>
+          <p>Fasade, hall, venterom og prisliste.</p>
         </div>
+        <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Flere bilder</a>
       </div>
 
-      <div class="gallery" role="list">
-        <figure role="listitem">
-          <img src="bilde-1-prisliste.jpg" alt="Prisliste Bilvask Express AS i Lillestrøm" />
-          <figcaption>Prisliste</figcaption>
-        </figure>
-        <figure role="listitem">
-          <img src="bilde-2-fasade.jpg" alt="Fasade og bygg til bilvask i Lillestrøm" />
-          <figcaption>Fasade</figcaption>
-        </figure>
-        <figure role="listitem">
-          <img src="bilde-3-hall.jpg" alt="Bil i vaskehall med berøringsfri vask" />
-          <figcaption>Vaskehall</figcaption>
-        </figure>
-        <figure role="listitem">
-          <img src="bilde-4-venterom.jpg" alt="Venterom hos Bilvask Express AS" />
-          <figcaption>Venterom</figcaption>
-        </figure>
+      <div class="gallery">
+        <a class="shot w6" href="https://maps.app.goo.gl/KHm9REW8qunTJZax7?g_st=ac" target="_blank" rel="noopener" aria-label="Se fasade på Google Maps">
+          <img src="fasade.jpg" alt="Bilvask Express AS fasade i Lillestrøm" />
+          <div class="cap"><i></i> Fasade</div>
+        </a>
+
+        <a class="shot w6" href="https://maps.app.goo.gl/rRfgQYvUgzc2g8dQA?g_st=ac" target="_blank" rel="noopener" aria-label="Se vaskehall på Google Maps">
+          <img src="hall.jpg" alt="Vaskehall hos Bilvask Express AS" />
+          <div class="cap"><i></i> Hall</div>
+        </a>
+
+        <a class="shot w8" href="https://maps.app.goo.gl/jcyzSqWmSRPzyyNx7?g_st=ac" target="_blank" rel="noopener" aria-label="Se venterom på Google Maps">
+          <img src="venterom.jpg" alt="Venterom hos Bilvask Express AS" />
+          <div class="cap"><i></i> Venterom</div>
+        </a>
+
+        <a class="shot w4" href="#pakker" aria-label="Se prisliste">
+          <img src="prisliste.jpg" alt="Prisliste Bilvask Express AS" />
+          <div class="cap"><i></i> Prisliste</div>
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- ÅPNINGSTIDER -->
-  <section id="apningstider">
+  <section id="kart">
     <div class="container">
       <div class="section-title">
         <div>
-          <h2>Åpningstider</h2>
-          <p>Kom innom i åpningstiden eller ring for å avklare kapasitet.</p>
+          <h2>Kart</h2>
+          <p>Voldgata 58, 2000 Lillestrøm.</p>
+        </div>
+        <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Åpne i Google Maps</a>
+      </div>
+
+      <div class="map card">
+        <iframe
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Voldgata%2058%2C%202000%20Lillestr%C3%B8m&z=16&output=embed"
+          title="Kart - Bilvask Express AS">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="historikk">
+    <div class="container">
+      <div class="section-title">
+        <div>
+          <h2>Historikk</h2>
+          <p>Tilbake – med ny profil.</p>
         </div>
       </div>
 
       <div class="grid-2">
-        <div class="card">
-          <h3>Man–Lør</h3>
-          <p style="font-size:18px; margin:0"><b>08:00 – 19:00</b></p>
+        <div class="card pad soft">
+          <h3>Ny start</h3>
+          <p>
+            Bilvasken var tidligere rammet av en brann og ble stengt en periode. Nå bygger vi opp igjen,
+            og lanserer samtidig en ny visuell profil – fra rødt til blått.
+          </p>
         </div>
-        <div class="card">
-          <h3>Smart stopp ved Coop</h3>
-          <p style="margin:0">Vi ligger rett på andre siden av Coop – det passer godt hvis du vil handle mens bilen vaskes.</p>
+        <div class="card pad soft">
+          <h3>Fokus fremover</h3>
+          <p>
+            Målet er samme hver dag: effektiv bilvask, tydelige pakker og en enkel kundeopplevelse.
+            Nettbestilling kommer, men foreløpig bestiller du ved å ringe.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- KONTAKT -->
   <section id="kontakt">
     <div class="container">
       <div class="section-title">
         <div>
           <h2>Kontakt</h2>
-          <p>Foreløpig bestilling på telefon. Booking kommer senere.</p>
+          <p>Bestill på telefon eller via knappen. Nettbetaling kommer senere.</p>
         </div>
+        <a class="btn primary" href="tel:+4791926901">Bestill</a>
       </div>
 
-      <div class="contact-grid">
+      <div class="contact">
         <div class="contact-item">
           <div class="icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M7 3h4l2 5-2 2c1.5 3 3.5 5 6 6l2-2 5 2v4c0 1-1 2-2 2C10 22 2 14 2 4c0-1 1-2 2-2h3z" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M7 3h4l2 5-2 2c1.5 3 3.5 5 6 6l2-2 5 2v4c0 1-1 2-2 2C10 22 2 14 2 4c0-1 1-2 2-2h3z" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
             </svg>
           </div>
           <div>
             <b>Telefon</b>
-            <span><a href="tel:+4791926901">919 26 901</a></span>
+            <span><a href="tel:+4791926901" style="color:var(--yellow2); font-weight:900;">919 26 901</a></span>
           </div>
         </div>
 
         <div class="contact-item">
           <div class="icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
-              <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
+              <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
+              <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
             </svg>
           </div>
           <div>
             <b>Adresse</b>
-            <span>Voldgata 58, 2000 Lillestrøm</span><br/>
-            <span><a href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener" style="color:var(--accent2); font-weight:700;">Åpne i Google Maps</a></span>
+            <span>Voldgata 58, 2000 Lillestrøm</span>
+            <div style="margin-top:8px">
+              <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Rute i Google Maps</a>
+            </div>
           </div>
         </div>
 
         <div class="contact-item">
           <div class="icon" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M4 7h16M4 12h10M4 17h16" stroke="rgba(255,255,255,.9)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M4 7h16M4 12h10M4 17h16" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div>
-            <b>Info</b>
-            <span>Bookingløsning kommer. Foreløpig: ring oss for tid og anbefalt pakke.</span>
+            <b>Åpningstider</b>
+            <span>Man–Lør: 08:00 – 19:00</span>
           </div>
         </div>
 
         <div class="contact-item">
-          <div class="icon" aria-hidden="true">
+          <div class="icon" aria-hidden="true" style="background:rgba(255,204,51,.10); border-color:rgba(255,204,51,.24);">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M3 10l9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1V10z" stroke="rgba(255,255,255,.9)" stroke-width="2"/>
+              <path d="M3 12h18" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M12 3v18" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </div>
           <div>
-            <b>Nærmeste landemerke</b>
-            <span>Rett på andre siden av Coop – perfekt kombinasjon av vask og handling.</span>
+            <b>Rett ved Coop</b>
+            <span>Perfekt å kombinere med handling.</span>
           </div>
         </div>
       </div>
 
-      <div class="hero-actions" style="margin-top:14px">
-        <a class="btn primary" href="tel:+4791926901">Ring 919 26 901</a>
-        <a class="btn" href="#hero">Til toppen</a>
+      <div class="hero-actions" style="margin-top:16px">
+        <a class="btn primary" href="#pakker">Bestill</a>
+        <a class="btn" href="tel:+4791926901">Ring</a>
       </div>
     </div>
   </section>
 
   <footer>
     <div class="container footer-inner">
-      <div class="foot">
-        © <span id="year"></span> Bilvask Express AS • Voldgata 58, 2000 Lillestrøm
-      </div>
-      <div class="foot">
-        Levert av <a href="https://setaei.no" target="_blank" rel="noopener">Setaei.no</a>
-      </div>
+      <div>© <span id="year"></span> Bilvask Express AS • Voldgata 58, Lillestrøm</div>
+      <div>Levert av <a href="https://setaei.no" target="_blank" rel="noopener">Setaei.no</a></div>
     </div>
   </footer>
 
@@ -801,7 +1099,21 @@
     // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Optional: smooth scroll for in-page anchors (works in modern browsers)
+    // Mobile menu
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobileMenu");
+    function setMenu(open){
+      hamburger.setAttribute("aria-expanded", String(open));
+      mobileMenu.style.display = open ? "block" : "none";
+      mobileMenu.setAttribute("aria-hidden", String(!open));
+    }
+    hamburger.addEventListener("click", () => {
+      const open = hamburger.getAttribute("aria-expanded") !== "true";
+      setMenu(open);
+    });
+    mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href");
@@ -812,6 +1124,170 @@
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
+
+    // Bubble animation that forms the car logo
+    (function(){
+      const canvas = document.getElementById("bubbleCanvas");
+      const ctx = canvas.getContext("2d", { alpha: true });
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function resize(){
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width  = Math.floor(canvas.clientWidth * dpr);
+        canvas.height = Math.floor(canvas.clientHeight * dpr);
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+      function fitCanvasToParent(){
+        const hero = canvas.parentElement;
+        canvas.style.width = hero.clientWidth + "px";
+        canvas.style.height = hero.clientHeight + "px";
+        resize();
+      }
+
+      // Extract points from SVG path template
+      const path = document.getElementById("carPath");
+      const svg = document.getElementById("logoTemplate");
+      function samplePoints(){
+        const pts = [];
+        const total = path.getTotalLength();
+        const step = 6; // lower = denser
+        for (let i = 0; i <= total; i += step){
+          const p = path.getPointAtLength(i);
+          pts.push({ x: p.x, y: p.y });
+        }
+        // also sample wheel circles by adding a few points around centers
+        const circles = Array.from(svg.querySelectorAll("circle"));
+        circles.forEach(c => {
+          const cx = +c.getAttribute("cx"), cy = +c.getAttribute("cy"), r = +c.getAttribute("r");
+          for(let a=0; a<Math.PI*2; a+=Math.PI/16){
+            pts.push({ x: cx + Math.cos(a)*r, y: cy + Math.sin(a)*r });
+          }
+        });
+        return pts;
+      }
+
+      // Convert SVG space to canvas space positioned on hero (top-right-ish)
+      function buildTargets(){
+        const pts = samplePoints();
+        const hero = canvas.parentElement;
+        const rect = hero.getBoundingClientRect();
+
+        // place the logo area in hero-main card visually (top-right)
+        const targetBox = {
+          w: Math.min(240, rect.width * 0.42),
+          h: Math.min(130, rect.height * 0.30),
+          x: rect.width - Math.min(260, rect.width * 0.48) - 10,
+          y: 34
+        };
+
+        // svg viewBox 320x160
+        const scale = Math.min(targetBox.w / 320, targetBox.h / 160);
+        const ox = targetBox.x;
+        const oy = targetBox.y;
+
+        return pts.map(p => ({
+          x: ox + p.x * scale,
+          y: oy + p.y * scale
+        }));
+      }
+
+      let targets = [];
+      let particles = [];
+      let raf = null;
+      const baseCount = 520;
+
+      function rand(min, max){ return min + Math.random()*(max-min); }
+
+      function init(){
+        fitCanvasToParent();
+        targets = buildTargets();
+        const hero = canvas.parentElement;
+        const w = hero.clientWidth;
+        const h = hero.clientHeight;
+
+        const count = Math.min(baseCount, targets.length);
+        particles = new Array(count).fill(0).map((_,i) => {
+          const t = targets[Math.floor(i * (targets.length / count))];
+          return {
+            x: rand(0, w),
+            y: rand(0, h),
+            vx: rand(-0.6, 0.6),
+            vy: rand(-0.6, 0.6),
+            tx: t.x,
+            ty: t.y,
+            r: rand(1.2, 3.4),
+            a: rand(0.12, 0.35),
+            hue: Math.random() < 0.22 ? "yellow" : "cyan"
+          };
+        });
+      }
+
+      function draw(){
+        const hero = canvas.parentElement;
+        const w = hero.clientWidth;
+        const h = hero.clientHeight;
+
+        ctx.clearRect(0,0,w,h);
+
+        // Gentle background drift bubbles
+        // Main particles converge
+        for (const p of particles){
+          const dx = p.tx - p.x;
+          const dy = p.ty - p.y;
+          const dist = Math.sqrt(dx*dx + dy*dy) + 0.001;
+
+          const pull = 0.020;          // convergence strength
+          const damp = 0.86;           // damping
+          p.vx = (p.vx + (dx/dist)*pull*dist) * damp;
+          p.vy = (p.vy + (dy/dist)*pull*dist) * damp;
+
+          // subtle noise
+          p.vx += (Math.random()-0.5)*0.05;
+          p.vy += (Math.random()-0.5)*0.05;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          // draw bubble
+          const col = p.hue === "yellow"
+            ? `rgba(255,204,51,${p.a})`
+            : `rgba(127,231,242,${p.a})`;
+
+          ctx.beginPath();
+          ctx.fillStyle = col;
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fill();
+
+          // highlight
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255,255,255,${Math.min(0.20, p.a + 0.06)})`;
+          ctx.arc(p.x - p.r*0.35, p.y - p.r*0.35, p.r*0.45, 0, Math.PI*2);
+          ctx.fill();
+        }
+      }
+
+      function loop(){
+        draw();
+        raf = requestAnimationFrame(loop);
+      }
+
+      function start(){
+        if (prefersReduced) return;
+        init();
+        cancelAnimationFrame(raf);
+        loop();
+      }
+
+      window.addEventListener("resize", () => start(), { passive:true });
+      // Ensure canvas is sized after layout
+      setTimeout(start, 60);
+    })();
+
+    /*
+      Historikk-kilder (ikke synlig på siden):
+      - Brann i Voldgata 58 (YouTube-opptak): https://www.youtube.com/watch?v=wXujcczJms8 (turn2search0)
+      - Lokalsak/oversikt (MittLillestrøm): https://www.mittlillestrom.no/bilvask-express-as/ (turn1search2)
+    */
   </script>
 </body>
 </html>
