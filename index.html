@@ -3,14 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-
   <title>Bilvask i Lillestrøm | Bilvask Express AS – Voldgata 58</title>
-  <meta name="description" content="Bilvask i Lillestrøm: utvendig, innvendig, rens og polering. Pakker for sedan, SUV og varebil. Rett ved Coop. Ring 919 26 901 eller bestill." />
+  <meta name="description" content="Bilvask i Lillestrøm: utvendig, innvendig, rens og polering. 8 pakker med priser for sedan, SUV og varebil. Rett ved Coop. Bestill på 919 26 901." />
   <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#0b2740" />
 
   <meta property="og:title" content="Bilvask i Lillestrøm | Bilvask Express AS" />
-  <meta property="og:description" content="Rask, skånsom og grundig bilvask i Lillestrøm. Rett ved Coop. Ring 919 26 901 eller bestill." />
+  <meta property="og:description" content="8 pakker for sedan, SUV og varebil. Rett ved Coop. Bestill på 919 26 901." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="/img/og-cover.jpg" />
 
@@ -35,9 +34,7 @@
       "opens": "08:00",
       "closes": "19:00"
     }],
-    "sameAs": [
-      "https://maps.app.goo.gl/aUYi53CLXqsCJw5a9"
-    ]
+    "sameAs": ["https://maps.app.goo.gl/aUYi53CLXqsCJw5a9"]
   }
   </script>
 
@@ -46,7 +43,6 @@
       --bg:#0b2740;
       --bg2:#071a2b;
       --card: rgba(255,255,255,.06);
-      --card2: rgba(255,255,255,.10);
       --line: rgba(255,255,255,.14);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.72);
@@ -60,7 +56,7 @@
       --radius: 18px;
       --max: 1160px;
 
-      --navH: 72px; /* litt høyere */
+      --navH: 72px;
     }
 
     *{ box-sizing:border-box; }
@@ -70,8 +66,8 @@
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color: var(--text);
       background:
-        radial-gradient(1100px 650px at 20% 0%, rgba(56,198,217,.18), transparent 55%),
-        radial-gradient(900px 520px at 90% 5%, rgba(255,204,51,.12), transparent 52%),
+        radial-gradient(1100px 650px at 20% 0%, rgba(56,198,217,.16), transparent 55%),
+        radial-gradient(900px 520px at 90% 5%, rgba(255,204,51,.10), transparent 52%),
         linear-gradient(180deg, var(--bg2), var(--bg));
       line-height:1.55;
       overflow-x:hidden;
@@ -81,6 +77,7 @@
 
     @media (prefers-reduced-motion: reduce){
       *{ animation:none !important; transition:none !important; scroll-behavior:auto !important; }
+      .snow, .snow::before, .snow::after { display:none !important; }
     }
 
     /* Sticky header */
@@ -91,12 +88,11 @@
       height: var(--navH);
       display:flex;
       align-items:center;
-      background: rgba(7,26,43,.82);
+      background: rgba(7,26,43,.84);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
     .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
-
     .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
     .badge{
       width:44px;height:44px;border-radius:14px;
@@ -152,13 +148,13 @@
       white-space:nowrap;
     }
     .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.09); border-color: rgba(255,255,255,.28); }
+
     .btn.primary{
       background: linear-gradient(135deg, rgba(255,204,51,.95), rgba(255,204,51,.20));
       border-color: rgba(255,204,51,.55);
       color:#1a1a1a;
     }
     .btn.primary:hover{ background: linear-gradient(135deg, rgba(255,216,106,.98), rgba(255,204,51,.22)); }
-    .btn.ghost{ box-shadow:none; }
 
     .hamburger{
       display:none;
@@ -185,10 +181,10 @@
       background: rgba(255,255,255,.04);
       margin:10px 0;
       color: var(--text);
-      font-weight:800;
+      font-weight:900;
     }
 
-    section{ padding: 52px 0; }
+    section{ padding: 56px 0; }
     [id]{ scroll-margin-top: calc(var(--navH) + 18px); }
     h1,h2,h3{ margin:0; line-height:1.1; }
     h1{ font-size: clamp(34px, 6vw, 56px); letter-spacing:-.6px; }
@@ -201,8 +197,8 @@
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .card.soft{ box-shadow: 0 12px 28px rgba(0,0,0,.22); }
-    .card.pad{ padding:18px; }
+    .soft{ box-shadow: 0 12px 28px rgba(0,0,0,.22); }
+    .pad{ padding:18px; }
 
     .section-title{
       display:flex;
@@ -212,15 +208,51 @@
       margin-bottom: 16px;
     }
 
-    /* Hero */
+    /* Reveal animations */
+    .reveal{
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s ease, transform .7s ease;
+      will-change: opacity, transform;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal.delay-1{ transition-delay: .08s; }
+    .reveal.delay-2{ transition-delay: .16s; }
+    .reveal.delay-3{ transition-delay: .24s; }
+
+    /* HERO with facade background */
     .hero{
-      padding: 42px 0 26px 0;
       position:relative;
       overflow:hidden;
+      padding: 28px 0 36px 0;
     }
+    .hero-bg{
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(180deg, rgba(7,26,43,.45), rgba(7,26,43,.92)),
+        radial-gradient(900px 520px at 85% 0%, rgba(255,204,51,.10), transparent 55%),
+        url("/img/fasade.jpg");
+      background-size: cover;
+      background-position: center;
+      transform: translateY(var(--heroParallax, 0px)) scale(1.02);
+      filter: saturate(1.03) contrast(1.05);
+      will-change: transform;
+    }
+    .hero-glow{
+      position:absolute; inset:0;
+      background:
+        radial-gradient(800px 520px at 20% 0%, rgba(56,198,217,.18), transparent 55%),
+        radial-gradient(900px 520px at 90% 5%, rgba(255,204,51,.12), transparent 52%);
+      pointer-events:none;
+    }
+
     .hero-wrap{
+      position:relative;
       display:grid;
-      grid-template-columns: 1.2fr .8fr;
+      grid-template-columns: 1.25fr .75fr;
       gap: 18px;
       align-items: start;
     }
@@ -229,46 +261,155 @@
       padding:22px;
       overflow:hidden;
     }
-    .hero-main::before{
-      content:"";
-      position:absolute; inset:-40% -30% auto auto;
-      width:520px;height:420px;
-      background: linear-gradient(135deg, rgba(56,198,217,.22), transparent 55%);
-      transform: rotate(18deg);
-      border-radius: 90px;
-      pointer-events:none;
-    }
-    .hero-actions{
-      display:flex; flex-wrap:wrap; gap:12px;
-      margin-top: 16px;
-    }
     .pill{
       display:inline-flex; align-items:center; gap:10px;
       padding: 8px 12px;
       border-radius:999px;
       border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.06);
-      color: var(--muted);
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.78);
       font-size:14px;
       width: fit-content;
+      backdrop-filter: blur(10px);
     }
     .dot{
       width:10px;height:10px;border-radius:999px;
       background: var(--yellow);
       box-shadow: 0 0 0 6px rgba(255,204,51,.12);
     }
-    .promo{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
-      margin-top:16px;
-      padding:12px 14px;
-      border-radius:16px;
-      border:1px solid rgba(255,255,255,.14);
-      background: linear-gradient(135deg, rgba(255,204,51,.16), rgba(255,255,255,.04));
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top: 16px;
     }
-    .promo b{ color: var(--yellow2); }
-    .promo small{ color: var(--muted); display:block; }
 
-    /* Services (3 boxes on PC + tablet, 1 on mobile) */
+    /* Christmas offer */
+    .xmas-offer{
+      margin-top:16px;
+      padding:14px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(255,204,51,.18), rgba(255,255,255,.05));
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      position:relative;
+      overflow:hidden;
+    }
+    .xmas-left{
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
+    }
+    .xmas-badge{
+      width:44px;height:44px;border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(7,26,43,.55);
+      display:grid; place-items:center;
+      backdrop-filter: blur(10px);
+      position:relative;
+    }
+    /* Santa hat */
+    .xmas-badge::before{
+      content:"";
+      position:absolute;
+      top:-10px; left:14px;
+      width:22px; height:14px;
+      background: #d53131;
+      border-radius: 10px 10px 8px 8px;
+      transform: rotate(-18deg);
+      box-shadow: 0 6px 18px rgba(0,0,0,.22);
+    }
+    .xmas-badge::after{
+      content:"";
+      position:absolute;
+      top:-15px; left:30px;
+      width:10px; height:10px;
+      background: #ffffff;
+      border-radius:999px;
+      transform: rotate(-18deg);
+      box-shadow: 0 6px 18px rgba(0,0,0,.18);
+    }
+    .xmas-title{
+      font-weight:1000;
+      color: var(--yellow2);
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .xmas-sub{ color: rgba(255,255,255,.78); font-size:13px; margin-top:2px; }
+    .xmas-price{
+      font-size:30px;
+      font-weight:1100;
+      color: var(--yellow);
+      letter-spacing:-.6px;
+      white-space:nowrap;
+    }
+
+    /* Snow effect (hero only) */
+    .snow, .snow::before, .snow::after{
+      position:absolute;
+      inset:-200px 0 0 0;
+      content:"";
+      background-image:
+        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.85) 50%, transparent 52%),
+        radial-gradient(2px 2px at 60px 80px, rgba(255,255,255,.70) 50%, transparent 52%),
+        radial-gradient(1.5px 1.5px at 130px 110px, rgba(255,255,255,.75) 50%, transparent 52%),
+        radial-gradient(2px 2px at 180px 50px, rgba(255,255,255,.65) 50%, transparent 52%),
+        radial-gradient(1.5px 1.5px at 240px 140px, rgba(255,255,255,.75) 50%, transparent 52%),
+        radial-gradient(2px 2px at 320px 90px, rgba(255,255,255,.70) 50%, transparent 52%);
+      background-size: 360px 180px;
+      opacity:.55;
+      pointer-events:none;
+      animation: snowFall 12s linear infinite;
+      filter: blur(.2px);
+    }
+    .snow::before{
+      opacity:.40;
+      animation-duration: 18s;
+      transform: translateY(-120px);
+    }
+    .snow::after{
+      opacity:.30;
+      animation-duration: 24s;
+      transform: translateY(-240px);
+    }
+    @keyframes snowFall{
+      from{ transform: translateY(-160px); }
+      to  { transform: translateY(420px); }
+    }
+
+    /* Side card */
+    .side-card p b{ color: var(--text); }
+
+    /* Logo bubbles (kept simple but present) */
+    .logo-area{
+      position: relative;
+      height: 100px;
+      margin-top: 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,26,43,.40);
+      overflow:hidden;
+      backdrop-filter: blur(10px);
+    }
+    .bubble-canvas{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      pointer-events:none;
+      opacity:.95;
+      mix-blend-mode: screen;
+    }
+    .logo-svg{
+      position:absolute;
+      width: 220px;
+      height: 110px;
+      right: -20px;
+      top: -10px;
+      opacity: 0;
+      pointer-events:none;
+    }
+
+    /* Services */
     .services-grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -313,9 +454,58 @@
       flex:0 0 auto;
     }
 
-    /* Packages */
-    .grid-3{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:14px; }
-    .product{
+    /* Package size selector */
+    .size-selector{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      padding: 14px;
+      border-radius: 18px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+    }
+    .size-left{
+      min-width:0;
+    }
+    .size-left b{ display:block; }
+    .size-left span{ color: var(--muted); font-size:14px; display:block; margin-top:4px; }
+
+    .size-tabs{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(7,26,43,.35);
+      cursor:pointer;
+      user-select:none;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+      font-weight:900;
+      color: rgba(255,255,255,.88);
+    }
+    .tab:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.06); }
+    .tab.active{
+      border-color: rgba(255,204,51,.55);
+      background: linear-gradient(135deg, rgba(255,204,51,.20), rgba(255,255,255,.04));
+    }
+    .tab svg{ opacity:.92; }
+
+    /* Packages grid: PC 4 columns, tablet/mobile 2 columns */
+    .packages-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:14px;
+      margin-top: 14px;
+    }
+    .package{
       padding:16px;
       border-radius: var(--radius);
       border:1px solid rgba(255,255,255,.12);
@@ -323,37 +513,70 @@
       position:relative;
       overflow:hidden;
       transition: transform .2s ease, border-color .2s ease, background .2s ease;
-      min-height: 170px;
+      min-height: 168px;
     }
-    .product:hover{
+    .package:hover{
       transform: translateY(-3px);
       border-color: rgba(255,255,255,.22);
       background: rgba(255,255,255,.065);
     }
-    .tag{
+    .pkg-tag{
       position:absolute;
       right: 12px;
       top: 12px;
       padding:6px 10px;
       border-radius:999px;
       font-size:12px;
-      font-weight:1000;
+      font-weight:1100;
       color:#1a1a1a;
       background: rgba(255,204,51,.95);
       border: 1px solid rgba(255,204,51,.45);
     }
-    .prices{ margin-top: 12px; display:grid; gap:8px; }
-    .price-row{
-      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    .package h3{ font-size:16px; margin-top: 0; }
+    .package p{ margin-top: 6px; font-size:14px; }
+    .price-badge{
+      margin-top: 12px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
       padding:10px 12px;
       border-radius:14px;
       border:1px solid rgba(255,255,255,.12);
       background: rgba(255,255,255,.04);
+      font-weight:1100;
+    }
+    .price-badge span{ color:var(--muted); font-weight:900; }
+    .price{
+      font-size:18px;
+      letter-spacing:-.2px;
+    }
+
+    /* Diverse arbeid section */
+    .diverse{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .list{
+      margin: 10px 0 0 0;
+      padding: 0;
+      list-style:none;
+      color: var(--muted);
+      font-size:14px;
+    }
+    .list li{
+      display:flex; justify-content:space-between; gap:12px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      margin-top: 10px;
       font-weight:900;
     }
-    .price-row span{ color:var(--muted); font-weight:800; }
+    .list li em{ font-style:normal; color: var(--muted); font-weight:800; }
 
-    /* Gallery (4 images: fasade, hall, venterom, coop) */
+    /* Gallery */
     .gallery{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
@@ -365,7 +588,7 @@
       border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.03);
       position:relative;
-      min-height: 190px;
+      min-height: 200px;
       box-shadow: 0 12px 28px rgba(0,0,0,.22);
     }
     .shot img{
@@ -384,8 +607,8 @@
       border:1px solid rgba(255,255,255,.14);
       background: rgba(7,26,43,.70);
       backdrop-filter: blur(10px);
-      color: var(--muted);
-      font-weight:900;
+      color: rgba(255,255,255,.80);
+      font-weight:1000;
       font-size:12px;
       display:flex; align-items:center; gap:10px;
     }
@@ -396,8 +619,24 @@
       display:inline-block;
     }
     .w6{ grid-column: span 6; }
-    .w4{ grid-column: span 4; }
-    .w8{ grid-column: span 8; }
+
+    /* History */
+    .history{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      align-items: stretch;
+    }
+    .history-photo{
+      border-radius: 18px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.03);
+      min-height: 280px;
+      box-shadow: 0 12px 28px rgba(0,0,0,.22);
+    }
+    .history-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
+    .history-text{ padding:18px; }
 
     /* Reviews */
     .reviews{
@@ -415,7 +654,7 @@
       display:flex; justify-content:space-between; gap:10px; align-items:flex-start;
       margin-bottom:10px;
     }
-    .review-name{ font-weight:1000; }
+    .review-name{ font-weight:1100; }
     .stars{ color: var(--yellow); letter-spacing:2px; font-size:14px; white-space:nowrap; }
     blockquote{
       margin:0;
@@ -423,11 +662,7 @@
       font-weight:650;
       line-height:1.5;
     }
-    .review-meta{
-      margin-top:10px;
-      color: var(--muted);
-      font-size:13px;
-    }
+    .review-meta{ margin-top:10px; color: var(--muted); font-size:13px; }
 
     /* Map */
     .map{
@@ -440,40 +675,7 @@
     }
     .map iframe{ width:100%; height:100%; border:0; }
 
-    /* Historikk image */
-    .history{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-      align-items: stretch;
-    }
-    .history-photo{
-      border-radius: 18px;
-      overflow:hidden;
-      border:1px solid rgba(255,255,255,.14);
-      background: rgba(255,255,255,.03);
-      min-height: 260px;
-      box-shadow: 0 12px 28px rgba(0,0,0,.22);
-    }
-    .history-photo img{ width:100%; height:100%; object-fit:cover; display:block; }
-    .history-text{ padding:18px; }
-
-    /* Contact */
-    .contact{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap:12px;
-    }
-    .contact-item{
-      display:flex; gap:12px; align-items:flex-start;
-      padding:14px;
-      border-radius: 18px;
-      border:1px solid rgba(255,255,255,.12);
-      background: rgba(255,255,255,.04);
-    }
-    .contact-item b{ display:block; }
-    .contact-item span{ color:var(--muted); font-size:14px; }
-
+    /* Footer */
     footer{
       padding: 30px 0 42px 0;
       border-top: 1px solid rgba(255,255,255,.12);
@@ -485,25 +687,25 @@
       color: var(--muted);
       font-size:14px;
     }
-    .footer-inner a{ color: var(--yellow2); font-weight:1000; }
+    .footer-inner a{ color: var(--yellow2); font-weight:1100; }
 
+    /* Responsive */
     @media (max-width: 980px){
       .nav-links{ display:none; }
       .hamburger{ display:flex; }
       .hero-wrap{ grid-template-columns: 1fr; }
-      .grid-3{ grid-template-columns: 1fr; }
       .services-grid{ grid-template-columns: 1fr; }
-      .reviews{ grid-template-columns: 1fr; }
-      .contact{ grid-template-columns: 1fr; }
+      .packages-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .diverse{ grid-template-columns: 1fr; }
       .history{ grid-template-columns: 1fr; }
+      .reviews{ grid-template-columns: 1fr; }
       .map{ height: 320px; }
-      .w6,.w4,.w8{ grid-column: span 12; }
+      .w6{ grid-column: span 12; }
       .shot{ min-height: 220px; }
     }
-    /* Tablet/desktop: keep 3 services and 3 reviews side-by-side */
+    /* Tablet range: keep 2 columns for packages, and 2-3 services is fine (we keep 3 unless narrow) */
     @media (min-width: 981px) and (max-width: 1200px){
-      .services-grid{ grid-template-columns: repeat(3, minmax(0,1fr)); }
-      .reviews{ grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .packages-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
   </style>
 </head>
@@ -528,17 +730,16 @@
       <nav class="nav-links" aria-label="Hovedmeny">
         <a href="#tjenester">Tjenester</a>
         <a href="#pakker">Pakker</a>
-        <a href="#tilbakemeldinger">Tilbakemeldinger</a>
+        <a href="#diverse">Diverse arbeid</a>
         <a href="#bilder">Bilder</a>
         <a href="#historikk">Historikk</a>
+        <a href="#tilbakemeldinger">Tilbakemeldinger</a>
         <a href="#kart">Kart</a>
         <a href="#kontakt">Kontakt</a>
       </nav>
 
       <div class="nav-actions">
-        <a class="btn ghost" href="tel:+4791926901">Ring</a>
-        <a class="btn primary" href="#kontakt">Bestill</a>
-
+        <a class="btn primary" href="tel:+4791926901" aria-label="Bestill på telefon">Bestill</a>
         <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
@@ -551,63 +752,102 @@
   <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
     <a href="#tjenester">Tjenester</a>
     <a href="#pakker">Pakker</a>
-    <a href="#tilbakemeldinger">Tilbakemeldinger</a>
+    <a href="#diverse">Diverse arbeid</a>
     <a href="#bilder">Bilder</a>
     <a href="#historikk">Historikk</a>
+    <a href="#tilbakemeldinger">Tilbakemeldinger</a>
     <a href="#kart">Kart</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="tel:+4791926901">Ring 919 26 901</a>
+    <a href="tel:+4791926901">Bestill: 919 26 901</a>
   </div>
 
+  <!-- HERO -->
   <section class="hero" id="top">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-glow"></div>
+    <div class="snow" aria-hidden="true"></div>
+
     <div class="container hero-wrap">
-      <div class="card hero-main soft">
-        <div class="pill"><span class="dot"></span> Rett ved Coop • Bilvask i Lillestrøm</div>
-        <h1 style="margin-top:12px">Rask, skånsom og grundig bilvask</h1>
+      <div class="card hero-main soft reveal">
+        <div class="pill"><span class="dot"></span> Rett ved Coop • Handle mens bilen vaskes</div>
+        <h1 style="margin-top:12px">Bilvask i Lillestrøm – klart på en effektiv måte</h1>
         <p>
-          Utvendig vask, innvendig vask, rens og polering – med pakker for sedan, SUV og varebil.
-          Nettbestilling kommer, men foreløpig bestiller du ved å ringe.
+          8 pakker med priser for sedan, SUV og varebil. Bestill på telefon – nettbestilling kommer.
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="#kontakt">Bestill</a>
-          <a class="btn" href="tel:+4791926901">Ring 919 26 901</a>
+          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn" href="#pakker">Se pakker</a>
           <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Finn veien</a>
         </div>
 
-        <div class="promo">
-          <div>
-            <b>TILBUD</b>
-            <small>Utvendig bilvask fra</small>
+        <div class="xmas-offer reveal delay-1">
+          <div class="xmas-left">
+            <div class="xmas-badge" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2c2 3 2 7 0 10-2-3-2-7 0-10Z" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M6 14c2.5 2 9.5 2 12 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div style="min-width:0">
+              <div class="xmas-title">Julekampanje</div>
+              <div class="xmas-sub">Utvendig bilvask fra</div>
+            </div>
           </div>
-          <div style="font-size:28px; font-weight:1000; color:var(--yellow); letter-spacing:-.5px;">199,-</div>
+          <div class="xmas-price">199,-</div>
+        </div>
+
+        <div class="logo-area reveal delay-2" aria-hidden="true">
+          <canvas class="bubble-canvas" id="bubbleCanvas"></canvas>
+          <svg class="logo-svg" id="logoTemplate" viewBox="0 0 320 160" xmlns="http://www.w3.org/2000/svg">
+            <path id="carPath" d="M40 92 C70 70, 110 58, 150 58 C178 58, 205 65, 228 74
+                             C250 84, 270 90, 284 90
+                             C300 90, 308 98, 308 110
+                             L308 118 C308 126, 300 132, 292 132
+                             L280 132
+                             C278 118, 266 108, 252 108
+                             C238 108, 226 118, 224 132
+                             L116 132
+                             C114 118, 102 108, 88 108
+                             C74 108, 62 118, 60 132
+                             L46 132
+                             C34 132, 24 122, 24 110
+                             C24 100, 30 96, 40 92 Z"
+                  fill="none" stroke="#ffffff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+            <circle cx="88" cy="132" r="18" fill="none" stroke="#ffffff" stroke-width="10"/>
+            <circle cx="252" cy="132" r="18" fill="none" stroke="#ffffff" stroke-width="10"/>
+            <path d="M106 60 L130 34 C136 28, 144 24, 152 24 L192 24 C200 24, 208 28, 214 34 L238 58"
+                  fill="none" stroke="#ffffff" stroke-width="10" stroke-linejoin="round" stroke-linecap="round"/>
+          </svg>
         </div>
       </div>
 
-      <div class="card pad soft">
+      <div class="card pad soft side-card reveal delay-1">
         <h3>Åpningstider</h3>
-        <p><b style="color:var(--text)">Man–Lør:</b> 08:00 – 19:00</p>
-        <p style="margin-top:12px"><b style="color:var(--text)">Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
+        <p><b>Man–Lør:</b> 08:00 – 19:00</p>
+        <p style="margin-top:12px"><b>Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
+        <p style="margin-top:12px"><b>Bestilling:</b> <a href="tel:+4791926901" style="color:var(--yellow2); font-weight:1100">919 26 901</a></p>
         <div class="hero-actions" style="margin-top:12px">
+          <a class="btn primary" href="tel:+4791926901">Bestill</a>
           <a class="btn" href="#kart">Se kart</a>
-          <a class="btn" href="#bilder">Se bilder</a>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SERVICES -->
   <section id="tjenester">
     <div class="container">
       <div class="section-title">
-        <div>
+        <div class="reveal">
           <h2>Tjenester</h2>
-          <p>Kjernetjenester – raskt, skånsomt og effektivt.</p>
+          <p>Skånsom vask, rens og polering – og praktisk beliggenhet rett ved Coop.</p>
         </div>
-        <a class="btn primary" href="#kontakt">Bestill</a>
+        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
       </div>
 
       <div class="services-grid">
-        <div class="service-box">
+        <div class="service-box reveal">
           <div class="service-head">
             <div class="icon" aria-hidden="true" style="background:rgba(255,204,51,.10); border-color:rgba(255,204,51,.25);">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -616,18 +856,18 @@
               </svg>
             </div>
             <div>
-              <h3>Vask</h3>
-              <p style="margin:2px 0 0 0;">Utvendig, innvendig eller kombinasjon</p>
+              <h3>Vaskepakker</h3>
+              <p style="margin:2px 0 0 0;">Utvendig / innvendig / komplett</p>
             </div>
           </div>
           <ul>
             <li><span class="bullet"></span> Skum, sjampo og felgvask</li>
             <li><span class="bullet"></span> Vinduer, matter og dashbord</li>
-            <li><span class="bullet"></span> Pakker for sedan/SUV/varebil</li>
+            <li><span class="bullet"></span> Priser for sedan/SUV/varebil</li>
           </ul>
         </div>
 
-        <div class="service-box">
+        <div class="service-box reveal delay-1">
           <div class="service-head">
             <div class="icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -638,17 +878,17 @@
             </div>
             <div>
               <h3>Rens / detailing</h3>
-              <p style="margin:2px 0 0 0;">Innvendig rens av seter og tepper</p>
+              <p style="margin:2px 0 0 0;">Seter, tepper og innvendig rens</p>
             </div>
           </div>
           <ul>
-            <li><span class="bullet"></span> Rens av seter/tepper</li>
+            <li><span class="bullet"></span> Rens av seter og tepper</li>
             <li><span class="bullet"></span> Støvsuging av hele bilen</li>
-            <li><span class="bullet"></span> Vinduer og dashbord</li>
+            <li><span class="bullet"></span> Ren og behagelig kupé</li>
           </ul>
         </div>
 
-        <div class="service-box">
+        <div class="service-box reveal delay-2">
           <div class="service-head">
             <div class="icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
@@ -662,77 +902,226 @@
           </div>
           <ul>
             <li><span class="bullet"></span> Glans og beskyttelse</li>
-            <li><span class="bullet"></span> Kombineres med vask</li>
-            <li><span class="bullet"></span> Fullpakke tilgjengelig</li>
+            <li><span class="bullet"></span> Mer “nybil-følelse”</li>
+            <li><span class="bullet"></span> Kan kombineres med pakker</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- PACKAGES -->
   <section id="pakker">
     <div class="container">
       <div class="section-title">
-        <div>
+        <div class="reveal">
           <h2>Pakker</h2>
-          <p>Klar struktur nå – kan kobles til nettbetaling senere.</p>
+          <p>Velg biltype (Sedan / SUV / Varebil) – så oppdateres prisene automatisk.</p>
         </div>
-        <a class="btn primary" href="#kontakt">Bestill</a>
+        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
       </div>
 
-      <div class="grid-3">
-        <div class="product">
-          <div class="tag">Mest valgt</div>
+      <div class="size-selector reveal">
+        <div class="size-left">
+          <b>Velg størrelse</b>
+          <span>Prisene under tilpasser seg valget ditt.</span>
+        </div>
+
+        <div class="size-tabs" role="tablist" aria-label="Velg biltype">
+          <button class="tab active" data-size="sedan" type="button" role="tab" aria-selected="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M4 14c2-6 14-6 16 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 14v4M18 14v4" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            Sedan
+          </button>
+          <button class="tab" data-size="suv" type="button" role="tab" aria-selected="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M5 14c2.2-6 11.8-6 14 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M7 14v5M17 14v5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 10h8" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            SUV
+          </button>
+          <button class="tab" data-size="varebil" type="button" role="tab" aria-selected="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+              <path d="M3 14c1.8-5 12.2-5 14 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 14v5M16 14v5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M17 12h4v7h-4" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+            Varebil
+          </button>
+        </div>
+      </div>
+
+      <div class="packages-grid">
+        <article class="package reveal" data-sedan="350" data-suv="400" data-varebil="500">
+          <div class="pkg-tag">Populær</div>
           <h3>Utvendig vask</h3>
           <p>Skum, sjampo og felgvask</p>
-          <div class="prices">
-            <div class="price-row"><span>Sedan</span> 350,-</div>
-            <div class="price-row"><span>SUV</span> 400,-</div>
-            <div class="price-row"><span>Varebil</span> 500,-</div>
-          </div>
-        </div>
+          <div class="price-badge"><span>Pris</span><div class="price">350,-</div></div>
+        </article>
 
-        <div class="product">
+        <article class="package reveal delay-1" data-sedan="350" data-suv="400" data-varebil="400">
+          <h3>Innvendig vask</h3>
+          <p>Støvsuging, vinduer, matter, dashbord</p>
+          <div class="price-badge"><span>Pris</span><div class="price">350,-</div></div>
+        </article>
+
+        <article class="package reveal delay-2" data-sedan="600" data-suv="700" data-varebil="750">
+          <h3>Utvendig &amp; innvendig</h3>
+          <p>Komplett vask og enkel innvendig</p>
+          <div class="price-badge"><span>Pris</span><div class="price">600,-</div></div>
+        </article>
+
+        <article class="package reveal delay-3" data-sedan="650" data-suv="750" data-varebil="800">
           <h3>Supervask</h3>
-          <p>Understell, avfetting, felgrens + mer</p>
-          <div class="prices">
-            <div class="price-row"><span>Sedan</span> 650,-</div>
-            <div class="price-row"><span>SUV</span> 750,-</div>
-            <div class="price-row"><span>Varebil</span> 800,-</div>
-          </div>
-        </div>
+          <p>Understell, avfetting, felgrens + innvendig</p>
+          <div class="price-badge"><span>Pris</span><div class="price">650,-</div></div>
+        </article>
 
-        <div class="product">
-          <div class="tag">Full</div>
+        <article class="package reveal" data-sedan="1100" data-suv="1200" data-varebil="1400">
+          <h3>Dekk &amp; vask</h3>
+          <p>Dekkskift + vaskepakke</p>
+          <div class="price-badge"><span>Pris</span><div class="price">1100,-</div></div>
+        </article>
+
+        <article class="package reveal delay-1" data-sedan="2000" data-suv="2200" data-varebil="2500">
+          <h3>Polering</h3>
+          <p>Lakkrens, polering og voks</p>
+          <div class="price-badge"><span>Pris</span><div class="price">2000,-</div></div>
+        </article>
+
+        <article class="package reveal delay-2" data-sedan="2000" data-suv="2200" data-varebil="2500">
+          <h3>Innvendig rens</h3>
+          <p>Rens av seter/tepper + innvendig</p>
+          <div class="price-badge"><span>Pris</span><div class="price">2000,-</div></div>
+        </article>
+
+        <article class="package reveal delay-3" data-sedan="3500" data-suv="4000" data-varebil="4000">
+          <div class="pkg-tag">Full</div>
           <h3>Fullpakke</h3>
           <p>Polering, motor/understell, rens + vask</p>
-          <div class="prices">
-            <div class="price-row"><span>Sedan</span> 3500,-</div>
-            <div class="price-row"><span>SUV</span> 4000,-</div>
-            <div class="price-row"><span>Varebil</span> 4000,-</div>
-          </div>
-        </div>
+          <div class="price-badge"><span>Pris</span><div class="price">3500,-</div></div>
+        </article>
       </div>
 
-      <div class="hero-actions" style="margin-top:16px">
-        <a class="btn primary" href="#kontakt">Bestill</a>
-        <a class="btn" href="tel:+4791926901">Ring 919 26 901</a>
+      <div style="margin-top:16px" class="reveal">
+        <a class="btn primary" href="tel:+4791926901">Bestill</a>
       </div>
     </div>
   </section>
 
+  <!-- DIVERSE -->
+  <section id="diverse">
+    <div class="container">
+      <div class="section-title">
+        <div class="reveal">
+          <h2>Diverse arbeid</h2>
+          <p>Tilleggstjenester ved behov.</p>
+        </div>
+        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+      </div>
+
+      <div class="diverse">
+        <div class="card pad soft reveal">
+          <h3>Tillegg</h3>
+          <ul class="list">
+            <li><em>Voks</em> <span>50,-</span></li>
+            <li><em>Understellvask</em> <span>100,-</span></li>
+            <li><em>Felgrens</em> <span>100,-</span></li>
+            <li><em>Dekkskift (fra)</em> <span>400,-</span></li>
+          </ul>
+        </div>
+
+        <div class="card pad soft reveal delay-1">
+          <h3>Tillegg</h3>
+          <ul class="list">
+            <li><em>Avfetting</em> <span>100,-</span></li>
+            <li><em>Dekkvask</em> <span>100,-</span></li>
+            <li><em>Motorvask</em> <span>300,-</span></li>
+            <li><em>Lappe dekk</em> <span>300,-</span></li>
+          </ul>
+          <p style="margin-top:12px; font-size:13px;">
+            Fjerning av hundehår etter avtale. Feil med motor er på eget ansvar.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="bilder">
+    <div class="container">
+      <div class="section-title">
+        <div class="reveal">
+          <h2>Bilder</h2>
+          <p>Vaskehall, venterom, og Coop rett over veien.</p>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <div class="shot w6 reveal">
+          <img src="/img/hall.jpg" alt="Vaskehall hos Bilvask Express AS" />
+          <div class="cap"><i></i> Vaskehall</div>
+        </div>
+        <div class="shot w6 reveal delay-1">
+          <img src="/img/venterom.jpg" alt="Venterom hos Bilvask Express AS" />
+          <div class="cap"><i></i> Venterom</div>
+        </div>
+        <div class="shot w6 reveal delay-2">
+          <img src="/img/fasade.jpg" alt="Fasade Bilvask Express AS" />
+          <div class="cap"><i></i> Fasade</div>
+        </div>
+        <div class="shot w6 reveal delay-3">
+          <img src="/img/coop.jpg" alt="Coop på andre siden av veien" />
+          <div class="cap"><i></i> Coop rett over veien</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HISTORY (before reviews) -->
+  <section id="historikk">
+    <div class="container">
+      <div class="section-title">
+        <div class="reveal">
+          <h2>Historikk</h2>
+          <p>Stengt en periode etter brannen – nå tilbake med ny profil (blå).</p>
+        </div>
+      </div>
+
+      <div class="history">
+        <div class="history-photo reveal">
+          <img src="/img/brann.jpg" alt="Tidligere bilde av bilvasken etter brannen" />
+        </div>
+        <div class="card history-text soft reveal delay-1">
+          <h3>Ny start</h3>
+          <p>
+            Bilvasken ble tidligere rammet av brann og var stengt en periode. Nå bygger vi opp igjen,
+            og oppgraderer samtidig profilen – fra rødt til blått – med fokus på tydelige pakker og effektiv gjennomføring.
+          </p>
+          <div style="margin-top:14px">
+            <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
   <section id="tilbakemeldinger">
     <div class="container">
       <div class="section-title">
-        <div>
+        <div class="reveal">
           <h2>Tilbakemeldinger</h2>
           <p>Utdrag fra Google-anmeldelser.</p>
         </div>
-        <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Se alle</a>
+        <a class="btn reveal delay-1" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Se alle</a>
       </div>
 
       <div class="reviews">
-        <div class="review">
+        <div class="review reveal">
           <div class="review-top">
             <div>
               <div class="review-name">Georg Mikkelsen</div>
@@ -746,7 +1135,7 @@
           <div class="review-meta">Anbefales.</div>
         </div>
 
-        <div class="review">
+        <div class="review reveal delay-1">
           <div class="review-top">
             <div>
               <div class="review-name">Håvard Siegel Haukeborg</div>
@@ -760,7 +1149,7 @@
           <div class="review-meta">Har brukt stedet i flere år.</div>
         </div>
 
-        <div class="review">
+        <div class="review reveal delay-2">
           <div class="review-top">
             <div>
               <div class="review-name">Christian Borlaug</div>
@@ -769,7 +1158,7 @@
             <div class="stars">★★★★★</div>
           </div>
           <blockquote>
-            Fikk en «Supervask» med vask av understell og rens. Også gratis kaffe og en behagelig vent sone.
+            Fikk en «Supervask» med vask av understell og rens. Også gratis kaffe og en behagelig ventesone.
           </blockquote>
           <div class="review-meta">Tusen takk.</div>
         </div>
@@ -777,75 +1166,18 @@
     </div>
   </section>
 
-  <section id="bilder">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Bilder</h2>
-          <p>Vaskehall, venterom, fasade – og Coop på andre siden.</p>
-        </div>
-      </div>
-
-      <div class="gallery">
-        <div class="shot w6">
-          <img src="/img/fasade.jpg" alt="Bilvask Express AS fasade i Lillestrøm" />
-          <div class="cap"><i></i> Fasade</div>
-        </div>
-        <div class="shot w6">
-          <img src="/img/hall.jpg" alt="Vaskehall hos Bilvask Express AS" />
-          <div class="cap"><i></i> Vaskehall</div>
-        </div>
-        <div class="shot w6">
-          <img src="/img/venterom.jpg" alt="Venterom hos Bilvask Express AS" />
-          <div class="cap"><i></i> Venterom</div>
-        </div>
-        <div class="shot w6">
-          <img src="/img/coop.jpg" alt="Coop på andre siden av veien fra bilvasken" />
-          <div class="cap"><i></i> Coop rett over veien</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="historikk">
-    <div class="container">
-      <div class="section-title">
-        <div>
-          <h2>Historikk</h2>
-          <p>Bilvasken var stengt en periode etter brannen – nå er vi tilbake.</p>
-        </div>
-      </div>
-
-      <div class="history">
-        <div class="history-photo">
-          <img src="/img/brann.jpg" alt="Tidligere bilde av bilvasken etter brannen" />
-        </div>
-        <div class="card history-text soft">
-          <h3>Tilbake med ny profil</h3>
-          <p>
-            Etter brannen var bilvasken stengt en periode. Nå bygger vi opp igjen og lanserer en ny profil – fra rødt til blått.
-            Målet er det samme: effektiv bilvask, tydelige pakker og en enkel kundeopplevelse.
-          </p>
-          <div class="hero-actions">
-            <a class="btn primary" href="#kontakt">Bestill</a>
-            <a class="btn" href="#kart">Se kart</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
+  <!-- MAP -->
   <section id="kart">
     <div class="container">
       <div class="section-title">
-        <div>
+        <div class="reveal">
           <h2>Kart</h2>
           <p>Voldgata 58, 2000 Lillestrøm.</p>
         </div>
-        <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Åpne i Google Maps</a>
+        <a class="btn reveal delay-1" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Åpne i Google Maps</a>
       </div>
 
-      <div class="map card">
+      <div class="map card reveal">
         <iframe
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
@@ -856,49 +1188,27 @@
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="kontakt">
     <div class="container">
       <div class="section-title">
-        <div>
+        <div class="reveal">
           <h2>Kontakt</h2>
-          <p>Foreløpig bestilling på telefon.</p>
+          <p>Bestill på telefon. Nettbestilling kommer.</p>
         </div>
-        <a class="btn primary" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
       </div>
 
-      <div class="contact">
-        <div class="contact-item">
-          <div class="icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M7 3h4l2 5-2 2c1.5 3 3.5 5 6 6l2-2 5 2v4c0 1-1 2-2 2C10 22 2 14 2 4c0-1 1-2 2-2h3z" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linejoin="round"/>
-            </svg>
-          </div>
-          <div>
-            <b>Telefon</b>
-            <span><a href="tel:+4791926901" style="color:var(--yellow2); font-weight:1000;">919 26 901</a></span>
-          </div>
-        </div>
+      <div class="card pad soft reveal">
+        <h3>Bilvask Express AS</h3>
+        <p><b style="color:var(--text)">Telefon:</b> <a href="tel:+4791926901" style="color:var(--yellow2); font-weight:1100;">919 26 901</a></p>
+        <p style="margin-top:10px"><b style="color:var(--text)">Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
+        <p style="margin-top:10px"><b style="color:var(--text)">Åpent:</b> Man–Lør 08:00 – 19:00</p>
 
-        <div class="contact-item">
-          <div class="icon" aria-hidden="true">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M12 22s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
-              <path d="M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" stroke="rgba(255,255,255,.92)" stroke-width="2"/>
-            </svg>
-          </div>
-          <div>
-            <b>Adresse</b>
-            <span>Voldgata 58, 2000 Lillestrøm</span>
-            <div style="margin-top:10px">
-              <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Rute</a>
-            </div>
-          </div>
+        <div style="margin-top:14px">
+          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn" href="#top" style="margin-left:8px;">Til toppen</a>
         </div>
-      </div>
-
-      <div class="hero-actions" style="margin-top:16px">
-        <a class="btn primary" href="tel:+4791926901">Bestill</a>
-        <a class="btn" href="#top">Til toppen</a>
       </div>
     </div>
   </section>
@@ -911,8 +1221,10 @@
   </footer>
 
   <script>
+    // Year
     document.getElementById("year").textContent = new Date().getFullYear();
 
+    // Mobile menu
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobileMenu");
     function setMenu(open){
@@ -926,6 +1238,7 @@
     });
     mobileMenu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
 
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener("click", (e) => {
         const id = a.getAttribute("href");
@@ -936,6 +1249,190 @@
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       });
     });
+
+    // Reveal on scroll
+    (function(){
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){
+            entry.target.classList.add("in");
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    })();
+
+    // Hero parallax
+    (function(){
+      const bg = document.getElementById("heroBg");
+      if(!bg) return;
+      let ticking = false;
+      function onScroll(){
+        if(ticking) return;
+        ticking = true;
+        requestAnimationFrame(()=>{
+          const y = window.scrollY || 0;
+          const offset = Math.min(28, y * 0.06);
+          bg.style.setProperty("--heroParallax", offset + "px");
+          ticking = false;
+        });
+      }
+      window.addEventListener("scroll", onScroll, { passive:true });
+      onScroll();
+    })();
+
+    // Package size selector (Sedan / SUV / Varebil)
+    (function(){
+      const tabs = Array.from(document.querySelectorAll(".tab"));
+      const cards = Array.from(document.querySelectorAll(".package"));
+
+      function setSize(size){
+        tabs.forEach(t=>{
+          const active = t.dataset.size === size;
+          t.classList.toggle("active", active);
+          t.setAttribute("aria-selected", String(active));
+        });
+
+        cards.forEach(c=>{
+          const value = c.dataset[size];
+          const priceEl = c.querySelector(".price");
+          if(priceEl && value){
+            priceEl.textContent = value + ",-";
+          }
+        });
+      }
+
+      tabs.forEach(t=>{
+        t.addEventListener("click", ()=> setSize(t.dataset.size));
+      });
+
+      setSize("sedan"); // default
+    })();
+
+    // Bubble animation (logo)
+    (function(){
+      const canvas = document.getElementById("bubbleCanvas");
+      const ctx = canvas?.getContext("2d", { alpha: true });
+      const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if(!canvas || !ctx || prefersReduced) return;
+
+      function resize(){
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const rect = canvas.getBoundingClientRect();
+        canvas.width  = Math.floor(rect.width * dpr);
+        canvas.height = Math.floor(rect.height * dpr);
+        ctx.setTransform(dpr,0,0,dpr,0,0);
+      }
+
+      const path = document.getElementById("carPath");
+      const svg = document.getElementById("logoTemplate");
+
+      function samplePoints(){
+        const pts = [];
+        const total = path.getTotalLength();
+        const step = 6;
+        for (let i = 0; i <= total; i += step){
+          const p = path.getPointAtLength(i);
+          pts.push({ x: p.x, y: p.y });
+        }
+        const circles = Array.from(svg.querySelectorAll("circle"));
+        circles.forEach(c => {
+          const cx = +c.getAttribute("cx"), cy = +c.getAttribute("cy"), r = +c.getAttribute("r");
+          for(let a=0; a<Math.PI*2; a+=Math.PI/16){
+            pts.push({ x: cx + Math.cos(a)*r, y: cy + Math.sin(a)*r });
+          }
+        });
+        return pts;
+      }
+
+      function buildTargets(){
+        const pts = samplePoints();
+        const rect = canvas.getBoundingClientRect();
+        const targetBox = { x: rect.width * 0.52, y: 8, w: rect.width * 0.52, h: rect.height - 16 };
+        const scale = Math.min(targetBox.w / 320, targetBox.h / 160);
+        return pts.map(p => ({ x: targetBox.x + p.x * scale, y: targetBox.y + p.y * scale }));
+      }
+
+      let targets = [];
+      let particles = [];
+      const baseCount = 420;
+
+      function rand(min, max){ return min + Math.random()*(max-min); }
+
+      function init(){
+        resize();
+        targets = buildTargets();
+        const rect = canvas.getBoundingClientRect();
+        const w = rect.width, h = rect.height;
+
+        const count = Math.min(baseCount, targets.length);
+        particles = new Array(count).fill(0).map((_,i)=>{
+          const t = targets[Math.floor(i * (targets.length / count))];
+          return {
+            x: rand(0, w),
+            y: rand(0, h),
+            vx: rand(-0.6, 0.6),
+            vy: rand(-0.6, 0.6),
+            tx: t.x,
+            ty: t.y,
+            r: rand(1.2, 3.1),
+            a: rand(0.12, 0.32),
+            hue: Math.random() < 0.22 ? "yellow" : "cyan"
+          };
+        });
+      }
+
+      function draw(){
+        const rect = canvas.getBoundingClientRect();
+        const w = rect.width, h = rect.height;
+        ctx.clearRect(0,0,w,h);
+
+        for(const p of particles){
+          const dx = p.tx - p.x;
+          const dy = p.ty - p.y;
+          const dist = Math.sqrt(dx*dx + dy*dy) + 0.001;
+
+          const pull = 0.020;
+          const damp = 0.86;
+          p.vx = (p.vx + (dx/dist)*pull*dist) * damp;
+          p.vy = (p.vy + (dy/dist)*pull*dist) * damp;
+
+          p.vx += (Math.random()-0.5)*0.05;
+          p.vy += (Math.random()-0.5)*0.05;
+
+          p.x += p.vx;
+          p.y += p.vy;
+
+          const col = p.hue === "yellow"
+            ? `rgba(255,204,51,${p.a})`
+            : `rgba(127,231,242,${p.a})`;
+
+          ctx.beginPath();
+          ctx.fillStyle = col;
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.fillStyle = `rgba(255,255,255,${Math.min(0.20, p.a + 0.06)})`;
+          ctx.arc(p.x - p.r*0.35, p.y - p.r*0.35, p.r*0.45, 0, Math.PI*2);
+          ctx.fill();
+        }
+      }
+
+      let raf = null;
+      function loop(){ draw(); raf = requestAnimationFrame(loop); }
+
+      function start(){
+        init();
+        cancelAnimationFrame(raf);
+        loop();
+      }
+
+      window.addEventListener("resize", start, { passive:true });
+      setTimeout(start, 80);
+    })();
   </script>
 </body>
 </html>
