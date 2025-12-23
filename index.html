@@ -1231,6 +1231,7 @@
     <div class="hero-bg" id="heroBg"></div>
     <div class="hero-glow"></div>
     <div class="snow" aria-hidden="true"></div>
+    <div class="xmas-tree" aria-hidden="true"></div>
 
     <div class="container hero-wrap">
       <div class="card hero-main soft reveal">
@@ -1978,6 +1979,38 @@
           openBot(true);
         }
       }, 5200);
+    })();
+
+    // Xmas tree build
+    (function(){
+      const tree = document.querySelector(".xmas-tree");
+      if(!tree) return;
+
+      const star = document.createElement("div");
+      star.className = "tree-star";
+      tree.appendChild(star);
+
+      const lights = document.createElement("div");
+      lights.className = "tree-lights";
+      tree.appendChild(lights);
+
+      const trunk = document.createElement("div");
+      trunk.className = "tree-trunk";
+      tree.appendChild(trunk);
+
+      const pts = [
+        {x:38,y:44,c:"r"},{x:52,y:52,c:"g"},{x:30,y:62,c:""},
+        {x:58,y:66,c:"r"},{x:42,y:74,c:"g"},{x:28,y:78,c:"r"},
+        {x:56,y:84,c:""},{x:40,y:90,c:"g"}
+      ];
+      pts.forEach((p,i)=>{
+        const d=document.createElement("div");
+        d.className="light "+(p.c||"");
+        d.style.left = p.x+"%";
+        d.style.top  = p.y+"%";
+        d.style.animationDelay = (i*0.12)+"s";
+        lights.appendChild(d);
+      });
     })();
   </script>
 </body>
