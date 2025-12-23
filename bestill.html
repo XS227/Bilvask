@@ -89,13 +89,13 @@
     .nav-inner{ display:flex; align-items:center; justify-content:space-between; gap:12px; }
 
     .brand{ display:flex; align-items:center; gap:10px; min-width:0; }
+    .logo-wrap{ position:relative; width:44px; height:44px; flex:0 0 auto; }
     .badge{
-      width:44px;height:44px;border-radius:14px;
+      width:100%;height:100%;border-radius:14px;
       background: linear-gradient(135deg, rgba(56,198,217,.35), rgba(255,255,255,.06));
       border:1px solid rgba(255,255,255,.18);
       box-shadow: 0 10px 24px rgba(0,0,0,.25);
       display:grid; place-items:center;
-      flex:0 0 auto;
       position:relative;
       overflow:hidden;
     }
@@ -109,6 +109,33 @@
       position:absolute; inset:-40%;
       background: radial-gradient(circle, rgba(255,204,51,.18), transparent 60%);
       animation: badgeGlow 4.8s ease-in-out infinite;
+    }
+    .logo-spark{ position:absolute; inset:-2px; pointer-events:none; overflow:hidden; }
+    .sparkle{
+      position:absolute;
+      width:16px; height:16px;
+      pointer-events:none;
+      background: radial-gradient(circle at 50% 50%, rgba(255,255,255,.98), rgba(255,255,255,.32) 55%, transparent 70%);
+      border-radius:50%;
+      opacity:0;
+      transform: scale(.6) rotate(0deg);
+      animation: sparklePop 2s ease-out forwards;
+    }
+    .sparkle::before,
+    .sparkle::after{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.96), transparent);
+      transform-origin:center;
+      border-radius:50%;
+    }
+    .sparkle::before{ transform: rotate(45deg); opacity:.85; }
+    .sparkle::after{ transform: rotate(-45deg); opacity:.65; }
+    @keyframes sparklePop{
+      0%{ opacity:0; transform: scale(.4) rotate(0deg); }
+      25%{ opacity:1; transform: scale(1) rotate(16deg); }
+      55%{ opacity:.92; transform: scale(.82) rotate(32deg); }
+      100%{ opacity:0; transform: scale(1.45) rotate(60deg); }
     }
     @keyframes badgeGlow{
       0%,100%{ transform: translate(-10px, 6px) scale(1); opacity:.7; }
@@ -484,8 +511,11 @@
   <header class="nav">
     <div class="container nav-inner">
       <div class="brand">
-        <div class="badge" aria-hidden="true">
-          <img src="/img/logobv.png" alt="" loading="lazy" />
+        <div class="logo-wrap">
+          <div class="badge" aria-hidden="true">
+            <img src="/img/logobv.png" alt="" loading="lazy" />
+          </div>
+          <div class="logo-spark" aria-hidden="true"></div>
         </div>
         <div class="brand-text">
           <b>Bilvask Express AS</b>
@@ -593,6 +623,43 @@
       }
       window.addEventListener("scroll", onScroll, { passive:true });
       onScroll();
+    })();
+
+    // Logo sparkles
+    (function(){
+      const wrap = document.querySelector(".logo-wrap");
+      const layer = document.querySelector(".logo-spark");
+      if(!wrap || !layer) return;
+
+      function spawn(){
+        const r = wrap.getBoundingClientRect();
+        // spawn within the logo-wrap bounds
+        const s = document.createElement("span");
+        s.className = "sparkle";
+        const x = Math.random() * (r.width - 14) + 4;
+        const y = Math.random() * (r.height - 14) + 4;
+        s.style.left = x + "px";
+        s.style.top  = y + "px";
+        s.style.animationDuration = (1.2 + Math.random()*1.2) + "s";
+        s.style.filter = `drop-shadow(0 0 ${8+Math.random()*14}px rgba(215,221,230,.35))`;
+        layer.appendChild(s);
+        setTimeout(()=> s.remove(), 2200);
+      }
+
+      // steady sparkle cadence
+      let t = setInterval(()=>{
+        spawn();
+        if(Math.random() > .55) spawn();
+      }, 520);
+
+      // extra sparkles on hover / tap
+      wrap.addEventListener("mouseenter", ()=> { for(let i=0;i<5;i++) setTimeout(spawn, i*90); });
+      wrap.addEventListener("click", ()=> { for(let i=0;i<7;i++) setTimeout(spawn, i*80); });
+
+      // pause if reduced motion
+      if(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches){
+        clearInterval(t);
+      }
     })();
   </script>
 </body>
