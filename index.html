@@ -119,6 +119,11 @@
       position:relative;
       overflow:hidden;
     }
+    .badge img{
+      width:100%; height:100%; display:block;
+      object-fit:contain;
+      padding:8px;
+    }
     .badge::after{
       content:"";
       position:absolute; inset:-40%;
@@ -1057,11 +1062,7 @@
     <div class="container nav-inner">
       <div class="brand">
         <div class="badge" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="position:relative; z-index:2;">
-            <path d="M6 17c2.5 2 9.5 2 12 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M8.5 12.5c.5-2 1.8-3.5 3.5-3.5s3 1.5 3.5 3.5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 2v3" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
+          <img src="/img/logobv.png" alt="" loading="lazy" />
         </div>
         <div class="brand-text">
           <b>Bilvask Express AS</b>
@@ -1081,7 +1082,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a class="btn primary" href="tel:+4791926901" aria-label="Bestill på telefon">Bestill</a>
+        <a class="btn primary" href="bestill.html" aria-label="Bestill på nett">Bestill</a>
         <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
@@ -1100,7 +1101,7 @@
     <a href="#tilbakemeldinger">Tilbakemeldinger</a>
     <a href="#kart">Kart</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="tel:+4791926901">Bestill: 919 26 901</a>
+    <a href="bestill.html">Bestill på nett</a>
   </div>
 
   <!-- HERO -->
@@ -1119,7 +1120,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn primary" href="bestill.html">Bestill</a>
           <a class="btn" href="#pakker">Se pakker</a>
           <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Finn veien</a>
         </div>
@@ -1147,7 +1148,7 @@
         <p style="margin-top:12px"><b>Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
         <p style="margin-top:12px"><b>Bestilling:</b> <a href="tel:+4791926901" style="color:var(--yellow2); font-weight:1100">919 26 901</a></p>
         <div class="hero-actions" style="margin-top:12px">
-          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn primary" href="bestill.html">Bestill</a>
           <a class="btn" href="#kart">Se kart</a>
         </div>
       </div>
@@ -1173,7 +1174,7 @@
           <h2>Tjenester</h2>
           <p>Velg det som passer deg – fra rask utvendig vask til full behandling med rens og polering.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="services-grid">
@@ -1256,7 +1257,7 @@
           <h2>Pakker</h2>
           <p>Velg biltype og se prisene med en gang. Bestill på telefon – så finner vi riktig pakke på 1 minutt.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="size-selector reveal">
@@ -1345,7 +1346,7 @@
       </div>
 
       <div style="margin-top:16px" class="reveal">
-        <a class="btn primary" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary" href="bestill.html">Bestill</a>
       </div>
     </div>
 
@@ -1366,7 +1367,7 @@
           <h2>Diverse arbeid</h2>
           <p>Tilleggstjenester når du vil løfte resultatet eller løse et konkret behov.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="diverse">
@@ -1451,7 +1452,7 @@
           <h2>Historikk</h2>
           <p>Tilbake med ny profil og tydeligere opplevelse – samme fokus på kvalitet.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="history">
@@ -1465,7 +1466,7 @@
             tydelige pakker, rask gjennomføring og et resultat du ser med en gang.
           </p>
           <div style="margin-top:14px">
-            <a class="btn primary" href="tel:+4791926901">Bestill</a>
+            <a class="btn primary" href="bestill.html">Bestill</a>
           </div>
         </div>
       </div>
@@ -1577,7 +1578,7 @@
           <h2>Kontakt</h2>
           <p>Bestill på telefon – vi hjelper deg å velge riktig pakke.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="card pad soft reveal">
@@ -1587,7 +1588,7 @@
         <p style="margin-top:10px"><b style="color:var(--text)">Åpent:</b> Man–Lør 08:00 – 19:00</p>
 
         <div style="margin-top:14px">
-          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn primary" href="bestill.html">Bestill</a>
           <a class="btn" href="#top" style="margin-left:8px;">Til toppen</a>
         </div>
       </div>
