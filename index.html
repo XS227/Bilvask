@@ -119,6 +119,11 @@
       position:relative;
       overflow:hidden;
     }
+    .badge img{
+      width:100%; height:100%; display:block;
+      object-fit:contain;
+      padding:8px;
+    }
     .badge::after{
       content:"";
       position:absolute; inset:-40%;
@@ -1049,24 +1054,142 @@
     @media (min-width: 981px) and (max-width: 1200px){
       .packages-grid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
     }
+
+    /* ---------- Brand colors: dark navy base + light blue + silver/white ---------- */
+    :root{
+      --navyDeep:#061a2b;     /* mørk blå (sidebakgrunn) */
+      --navyLogo:#0b2740;     /* logo-blå (secondary bg) */
+      --iceBlue:#7fe7f2;      /* lys blå */
+      --silver:#d7dde6;       /* hvitt/sølv */
+      --silver2:rgba(215,221,230,.72);
+
+      /* Gold is reserved for offers/prices only */
+      --gold:#ffcc33;
+      --gold2:#ffd86a;
+    }
+
+    /* Force page background closer to logo navy */
+    body{
+      background:
+        radial-gradient(1100px 650px at 20% 0%, rgba(127,231,242,.10), transparent 55%),
+        radial-gradient(900px 520px at 90% 5%, rgba(215,221,230,.06), transparent 52%),
+        linear-gradient(180deg, var(--navyDeep), var(--navyLogo));
+    }
+
+    /* Remove accidental gold usage outside offers */
+    .btn.primary:not(.offer-only),
+    .pkg-tag:not(.offer-only),
+    .stars{
+      /* keep existing look but ensure stars are not gold unless you want them.
+         If you want stars still gold, delete this block. */
+    }
+
+    /* ---------- Header logo: bigger + no name/address ---------- */
+    .brand-logo-only{ align-items:center; }
+    .logo-wrap{
+      display:flex;
+      align-items:center;
+      gap:0;
+      height: 52px;
+      padding: 6px 8px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(6,26,43,.35);
+      backdrop-filter: blur(10px);
+      position:relative;
+      overflow:hidden;
+      box-shadow: 0 12px 26px rgba(0,0,0,.22);
+    }
+    .logo-img{
+      height: 46px;            /* desktop */
+      width: auto;
+      display:block;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.25));
+    }
+    @media (max-width: 980px){
+      .logo-img{ height: 52px; } /* litt større på mobil, siden du ønsket større logo */
+    }
+
+    /* Subtle live glow behind logo */
+    .logo-wrap::before{
+      content:"";
+      position:absolute;
+      inset:-60% -50%;
+      background:
+        radial-gradient(circle, rgba(127,231,242,.18), transparent 60%),
+        radial-gradient(circle, rgba(215,221,230,.10), transparent 65%);
+      transform: translate(18px,-10px);
+      opacity:.75;
+      animation: logoAura 6.5s ease-in-out infinite;
+      pointer-events:none;
+    }
+    @keyframes logoAura{
+      0%,100%{ transform: translate(18px,-10px) scale(1); opacity:.55; }
+      50%{ transform: translate(-12px,14px) scale(1.06); opacity:.85; }
+    }
+
+    /* Sparkles layer */
+    .logo-spark{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+    }
+
+    /* individual sparkle elements (created by JS) */
+    .sparkle{
+      position:absolute;
+      width:10px;
+      height:10px;
+      transform: rotate(0deg) scale(.5);
+      opacity:0;
+      filter: drop-shadow(0 0 10px rgba(215,221,230,.35));
+      animation: sparklePop 1.6s ease-in-out forwards;
+    }
+    .sparkle::before, .sparkle::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background: radial-gradient(circle, rgba(255,255,255,.95), rgba(215,221,230,.65) 55%, transparent 62%);
+      clip-path: polygon(50% 0%, 58% 40%, 100% 50%, 58% 60%, 50% 100%, 42% 60%, 0% 50%, 42% 40%);
+    }
+    .sparkle::after{
+      transform: rotate(45deg) scale(.88);
+      opacity:.85;
+    }
+    @keyframes sparklePop{
+      0%{ opacity:0; transform: rotate(0deg) scale(.45); }
+      20%{ opacity:1; transform: rotate(12deg) scale(1); }
+      70%{ opacity:.9; transform: rotate(42deg) scale(.92); }
+      100%{ opacity:0; transform: rotate(70deg) scale(.55); }
+    }
+
+    /* ---------- Gold ONLY on campaign/offer/prices ---------- */
+    .xmas-price,
+    .xmas-title,
+    .btn.primary,
+    .pkg-tag{
+      /* Vi lar disse være “gull” fordi de er kampanje/pris/CTA */
+      color: inherit;
+    }
+
+    /* Restrict gold usage:
+       - Buttons primary keep gold (CTA)
+       - Offer price keep gold
+       - Package tags keep gold only if they are offer badges
+    */
+    .pkg-tag{ background: rgba(255,204,51,.95); border-color: rgba(255,204,51,.45); color:#1a1a1a; }
+    .stars{ color: rgba(215,221,230,.78); } /* reviews stars in silver/white */
   </style>
 </head>
 
 <body>
   <header class="nav">
     <div class="container nav-inner">
-      <div class="brand">
-        <div class="badge" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="position:relative; z-index:2;">
-            <path d="M6 17c2.5 2 9.5 2 12 0" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M8.5 12.5c.5-2 1.8-3.5 3.5-3.5s3 1.5 3.5 3.5" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-            <path d="M12 2v3" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
-        <div class="brand-text">
-          <b>Bilvask Express AS</b>
-          <span>Voldgata 58 • Lillestrøm</span>
-        </div>
+      <div class="brand brand-logo-only">
+        <a href="#top" class="logo-wrap" aria-label="Til toppen">
+          <img src="/img/logo.png" alt="Lillestrøm Bilvask Express" class="logo-img" />
+          <span class="logo-spark" aria-hidden="true"></span>
+        </a>
       </div>
 
       <nav class="nav-links" aria-label="Hovedmeny">
@@ -1081,7 +1204,7 @@
       </nav>
 
       <div class="nav-actions">
-        <a class="btn primary" href="tel:+4791926901" aria-label="Bestill på telefon">Bestill</a>
+        <a class="btn primary" href="bestill.html" aria-label="Bestill på nett">Bestill</a>
         <button class="hamburger" id="hamburger" aria-label="Åpne meny" aria-expanded="false">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
             <path d="M4 7h16M4 12h16M4 17h16" stroke="rgba(255,255,255,.92)" stroke-width="2" stroke-linecap="round"/>
@@ -1100,7 +1223,7 @@
     <a href="#tilbakemeldinger">Tilbakemeldinger</a>
     <a href="#kart">Kart</a>
     <a href="#kontakt">Kontakt</a>
-    <a href="tel:+4791926901">Bestill: 919 26 901</a>
+    <a href="bestill.html">Bestill på nett</a>
   </div>
 
   <!-- HERO -->
@@ -1119,7 +1242,7 @@
         </p>
 
         <div class="hero-actions">
-          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn primary" href="bestill.html">Bestill</a>
           <a class="btn" href="#pakker">Se pakker</a>
           <a class="btn" href="https://maps.app.goo.gl/aUYi53CLXqsCJw5a9" target="_blank" rel="noopener">Finn veien</a>
         </div>
@@ -1147,7 +1270,7 @@
         <p style="margin-top:12px"><b>Adresse:</b> Voldgata 58, 2000 Lillestrøm</p>
         <p style="margin-top:12px"><b>Bestilling:</b> <a href="tel:+4791926901" style="color:var(--yellow2); font-weight:1100">919 26 901</a></p>
         <div class="hero-actions" style="margin-top:12px">
-          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn primary" href="bestill.html">Bestill</a>
           <a class="btn" href="#kart">Se kart</a>
         </div>
       </div>
@@ -1173,7 +1296,7 @@
           <h2>Tjenester</h2>
           <p>Velg det som passer deg – fra rask utvendig vask til full behandling med rens og polering.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="services-grid">
@@ -1256,7 +1379,7 @@
           <h2>Pakker</h2>
           <p>Velg biltype og se prisene med en gang. Bestill på telefon – så finner vi riktig pakke på 1 minutt.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="size-selector reveal">
@@ -1345,7 +1468,7 @@
       </div>
 
       <div style="margin-top:16px" class="reveal">
-        <a class="btn primary" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary" href="bestill.html">Bestill</a>
       </div>
     </div>
 
@@ -1366,7 +1489,7 @@
           <h2>Diverse arbeid</h2>
           <p>Tilleggstjenester når du vil løfte resultatet eller løse et konkret behov.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="diverse">
@@ -1451,7 +1574,7 @@
           <h2>Historikk</h2>
           <p>Tilbake med ny profil og tydeligere opplevelse – samme fokus på kvalitet.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="history">
@@ -1465,7 +1588,7 @@
             tydelige pakker, rask gjennomføring og et resultat du ser med en gang.
           </p>
           <div style="margin-top:14px">
-            <a class="btn primary" href="tel:+4791926901">Bestill</a>
+            <a class="btn primary" href="bestill.html">Bestill</a>
           </div>
         </div>
       </div>
@@ -1577,7 +1700,7 @@
           <h2>Kontakt</h2>
           <p>Bestill på telefon – vi hjelper deg å velge riktig pakke.</p>
         </div>
-        <a class="btn primary reveal delay-1" href="tel:+4791926901">Bestill</a>
+        <a class="btn primary reveal delay-1" href="bestill.html">Bestill</a>
       </div>
 
       <div class="card pad soft reveal">
@@ -1587,7 +1710,7 @@
         <p style="margin-top:10px"><b style="color:var(--text)">Åpent:</b> Man–Lør 08:00 – 19:00</p>
 
         <div style="margin-top:14px">
-          <a class="btn primary" href="tel:+4791926901">Bestill</a>
+          <a class="btn primary" href="bestill.html">Bestill</a>
           <a class="btn" href="#top" style="margin-left:8px;">Til toppen</a>
         </div>
       </div>
@@ -1699,6 +1822,25 @@
       }
       window.addEventListener("scroll", onScroll, { passive:true });
       onScroll();
+    })();
+
+    // Logo sparkles
+    (function(){
+      const hosts = document.querySelectorAll(".logo-spark");
+      if(!hosts.length) return;
+      function spawn(host){
+        const spark = document.createElement("span");
+        spark.className = "sparkle";
+        spark.style.left = Math.random() * 80 + 10 + "%";
+        spark.style.top = Math.random() * 60 + 10 + "%";
+        spark.style.animationDelay = (Math.random() * 0.4).toFixed(2) + "s";
+        host.appendChild(spark);
+        setTimeout(()=>spark.remove(), 1800);
+      }
+      hosts.forEach(host=>{
+        spawn(host);
+        setInterval(()=>spawn(host), 1400);
+      });
     })();
 
     // Package size selector
